@@ -92,26 +92,6 @@ const structuredData = {
     <main
       class="prose prose-neutral prose-a:no-underline dark:prose-invert mx-auto flex max-w-4xl flex-col space-y-4 px-4 py-12"
     >
-      <div class="flex items-center gap-4">
-        <figure class="shrink-0">
-          <a href="/">
-            <img
-              class="bg-input/10 max-h-24 w-fit rounded-md p-4 not-dark:invert"
-              src="transparent-logo.png"
-              alt="Logo"
-            />
-          </a>
-        </figure>
-        <nav aria-label="Social media links" class="inline-flex h-fit flex-wrap items-center gap-4">
-          {
-            SOCIALS.map((social) => (
-              <a href={social.link} target="_blank" rel="noopener noreferrer">
-                <social.icon aria-hidden="true" />
-              </a>
-            ))
-          }
-        </nav>
-      </div>
       <header>
         <h1>{seo?.title ? `${seo?.title}${DEFAULT_TITLE}` : DEFAULT_TITLE}</h1>
         <p class="prose-a:underline">
@@ -142,14 +122,28 @@ const structuredData = {
           </a>
         </div>
       </header>
-      <br />
       <slot />
-
-      <footer
-        class="text-muted-foreground mx-auto inline-flex items-center gap-4 pt-16 pb-8 text-center"
-      >
-        <span> call me dondycles</span>
-        <ThemeToggle client:load />
+      <br />
+      <footer>
+        <nav aria-label="Social media links" class="inline-flex h-fit flex-wrap items-center gap-4">
+          {
+            SOCIALS.map((social) => (
+              <a href={social.link} target="_blank" rel="noopener noreferrer">
+                <social.icon className="size-5" aria-hidden="true" />
+              </a>
+            ))
+          }
+          <ThemeToggle client:load />
+        </nav>
+        <figure class="h-fit w-fit shrink-0">
+          <a href="/">
+            <img
+              class="bg-input/10 max-h-24 w-fit rounded-md p-4 not-dark:invert"
+              src="transparent-logo.png"
+              alt="Logo"
+            />
+          </a>
+        </figure>
       </footer>
     </main>
     <Toaster client:load richColors={true} />
