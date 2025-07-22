@@ -11,9 +11,7 @@ import '@fontsource-variable/sometype-mono';
 import { SEO } from 'astro-seo';
 import { Button } from '@/components/ui/button';
 import { SOCIALS } from '@/lib/socials';
-import { Image } from 'astro:assets';
-import { FaCode, FaComment, FaLaptop, FaMusic } from 'react-icons/fa6';
-import transparentLogo from '@/../public/transparent-logo.png';
+import { FaCode, FaComment, FaMusic } from 'react-icons/fa6';
 import { Toaster } from '@/components/ui/sonner';
 const { seo } = Astro.props;
 const url = Astro.url;
@@ -97,12 +95,10 @@ const structuredData = {
       <div class="flex items-center gap-4">
         <figure class="shrink-0">
           <a href="/">
-            <Image
+            <img
               class="bg-input/10 max-h-24 w-fit rounded-md p-4 not-dark:invert"
-              src={transparentLogo}
+              src="/public/transparent-logo.png"
               alt="Logo"
-              quality={100}
-              inferSize
             />
           </a>
         </figure>
