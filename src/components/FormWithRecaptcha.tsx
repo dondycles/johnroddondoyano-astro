@@ -4,7 +4,7 @@ import TalkForm from './TalkForm';
 export default function FormWithRecaptcha() {
   return (
     <GoogleReCaptchaProvider
-      reCaptchaKey="6LfXDYorAAAAAJYQ9xyz1hXFS-Ijvl39oqI-GScP"
+      reCaptchaKey={import.meta.env.RECAPTCHA_SECRET_KEY}
       scriptProps={{
         async: true,
         defer: true,
