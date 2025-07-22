@@ -1,0 +1,161 @@
+---
+interface Props {
+  seo?: {
+    title?: string;
+    description?: string;
+  };
+}
+import { ThemeToggle } from '@/components/ThemeToggle';
+import '@/styles/global.css';
+import '@fontsource-variable/sometype-mono';
+import { SEO } from 'astro-seo';
+import { Button } from '@/components/ui/button';
+import { SOCIALS } from '@/lib/socials';
+import { Image } from 'astro:assets';
+import { FaCode, FaComment, FaLaptop, FaMusic } from 'react-icons/fa6';
+import transparentLogo from '@/../public/transparent-logo.png';
+import { Toaster } from '@/components/ui/sonner';
+const { seo } = Astro.props;
+const url = Astro.url;
+const canonicalURL = new URL(url.pathname, url);
+const siteURL = new URL('/', url);
+const webSiteSchema = new URL('/#/schema/WebSite', Astro.url);
+
+const DEFAULT_TITLE = 'John Rod Dondoyano';
+const DEFAULT_DESCRIPTION =
+  'A growing pianist on YouTube and an aspiring professional, driven by a dual passion for music and web development, harboring ambitions for a distinguished career in both fields.';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': webSiteSchema,
+  name: seo?.title ?? DEFAULT_TITLE,
+  url: siteURL,
+  description: seo?.description ?? DEFAULT_DESCRIPTION,
+};
+---
+
+<script is:inline>
+  const getThemePreference = () => {
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme');
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  };
+  const isDark = getThemePreference() === 'dark';
+  document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
+
+  if (typeof localStorage !== 'undefined') {
+    const observer = new MutationObserver(() => {
+      const isDark = document.documentElement.classList.contains('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+  }
+</script>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="canonical" href={canonicalURL} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <SEO
+      title={seo?.title ? `${seo?.title}${DEFAULT_TITLE}` : DEFAULT_TITLE}
+      titleDefault="John Rod Dondoyano"
+      description={seo?.description ?? DEFAULT_DESCRIPTION}
+      openGraph={{
+        basic: {
+          title: seo?.title ?? DEFAULT_TITLE,
+          type: 'website',
+          image: `${url.origin}/summary-new.png`,
+          url: `${url.origin}${url.pathname}`,
+        },
+        optional: {
+          description: seo?.description ?? DEFAULT_DESCRIPTION,
+          siteName: DEFAULT_TITLE,
+        },
+      }}
+      twitter={{
+        title: seo?.title ?? DEFAULT_TITLE,
+        description: seo?.description ?? DEFAULT_DESCRIPTION,
+        card: 'summary_large_image',
+        image: `${url.origin}/summary-new.png`,
+        creator: '@dondycles',
+      }}
+    />
+  </head>
+  <body class="font-ubuntu-mono text-foreground bg-background antialiased">
+    <main
+      class="prose prose-neutral prose-a:no-underline dark:prose-invert mx-auto flex max-w-4xl flex-col space-y-4 px-4 py-12"
+    >
+      <div class="flex items-center gap-4">
+        <figure class="shrink-0">
+          <a href="/">
+            <Image
+              class="bg-input/10 max-h-24 w-fit rounded-md p-4 not-dark:invert"
+              src={transparentLogo}
+              alt="Logo"
+              quality={100}
+              inferSize
+            />
+          </a>
+        </figure>
+        <nav aria-label="Social media links" class="inline-flex h-fit flex-wrap items-center gap-4">
+          {
+            SOCIALS.map((social) => (
+              <a href={social.link} target="_blank" rel="noopener noreferrer">
+                <social.icon aria-hidden="true" />
+              </a>
+            ))
+          }
+        </nav>
+      </div>
+      <header>
+        <h1>{seo?.title ? `${seo?.title}${DEFAULT_TITLE}` : DEFAULT_TITLE}</h1>
+        <p class="prose-a:underline">
+          A growing pianist on <a
+            href="https://youtube.com/johnroddondoyano"
+            target="_blank"
+            rel="noopener noreferrer">YouTube</a
+          >
+          and an aspiring professional, driven by a dual passion for <a href="/music">music</a> and <a
+            href="/web-development">web development</a
+          >, harboring ambitions for a distinguished career in both fields.
+        </p>
+        <div>
+          <a href="/music">
+            <Button variant={url.pathname.startsWith('/music') ? 'default' : 'outline'}
+              ><FaMusic />Music</Button
+            >
+          </a>
+          <a href="/web-development">
+            <Button variant={url.pathname.startsWith('/web-development') ? 'default' : 'outline'}
+              ><FaCode />Web Development</Button
+            >
+          </a>
+          <a href="/talk-to-me">
+            <Button variant={url.pathname.startsWith('/talk-to-me') ? 'default' : 'outline'}
+              ><FaComment />Talk to me</Button
+            >
+          </a>
+        </div>
+      </header>
+      <br />
+      <slot />
+
+      <footer
+        class="text-muted-foreground mx-auto inline-flex items-center gap-4 pt-16 pb-8 text-center"
+      >
+        <span> call me dondycles</span>
+        <ThemeToggle client:load />
+      </footer>
+    </main>
+    <Toaster client:load richColors={true} />
+  </body>
+</html>
