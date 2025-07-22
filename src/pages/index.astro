@@ -1,5 +1,8 @@
 ---
+import FormWithRecaptcha from '@/components/FormWithRecaptcha';
+import { Button } from '@/components/ui/button';
 import RootLayout from '@/layouts/RootLayout.astro';
+import { FaApple, FaFile, FaMusic, FaSpotify, FaYoutube } from 'react-icons/fa6';
 ---
 
 <RootLayout
@@ -7,4 +10,72 @@ import RootLayout from '@/layouts/RootLayout.astro';
     description:
       'A growing pianist on YouTube and an aspiring professional, driven by a dual passion for music and web development, harboring ambitions for a distinguished career in both fields.',
   }}
-/>
+>
+  <header>
+    <h1>John Rod Dondoyano</h1>
+    <p class="prose-a:underline">
+      A growing pianist on <a
+        href="https://youtube.com/johnroddondoyano"
+        target="_blank"
+        rel="noopener noreferrer">YouTube</a
+      >
+      and an aspiring professional, driven by a dual passion for music and <a
+        href="/web-development">web development</a
+      >, harboring ambitions for a distinguished career in both fields.
+    </p>
+  </header>
+  <article class="bg-input/10 rounded-md p-4">
+    <h2>300k Subscribers on YouTube</h2>
+    <p>
+      Join a growing community of music lovers and piano enthusiasts who enjoy heartfelt renditions,
+      tutorials, and creative arrangements from my YouTube channel.
+    </p>
+    <a href="https://youtube.com/johnroddondoyano" target="_blank" rel="noopener noreferrer">
+      <Button variant={'secondary'}><FaYoutube />Subscribe!</Button>
+    </a>
+  </article>
+  <article class="bg-input/10 rounded-md p-4">
+    <h2>300+ Piano Sheets</h2>
+    <p>
+      Explore an extensive collection of piano sheet music—perfect for all skill levels. Every piece
+      is transcribed with care and accuracy.
+    </p>
+    <a href="https://mymusicsheet.com/johnroddondoyano" target="_blank" rel="noopener noreferrer">
+      <Button variant={'secondary'}><FaMusic />Buy Piano Sheets</Button>
+    </a>
+  </article>
+  <article class="bg-input/10 rounded-md p-4">
+    <h2>250+ MIDI/MXL Files</h2>
+    <p>
+      Take your piano practice to the next level with downloadable MIDI and MusicXML files
+      compatible with Synthesia and notation software — great for visual learners.
+    </p>
+    <a href="https://payhip.com/johnroddondoyano" target="_blank" rel="noopener noreferrer">
+      <Button variant={'secondary'}><FaFile />Buy MIDI/MXL Files</Button>
+    </a>
+  </article>
+  <article class="bg-input/10 rounded-md p-4">
+    <h2>10k+ Listeners on Music Stores</h2>
+    <p>
+      Stream my original compositions and piano covers on popular music platforms. Whether you're
+      working, studying, or relaxing—let the music inspire you.
+    </p>
+    <div class="inline-flex flex-wrap gap-2">
+      <a
+        href="https://music.apple.com/us/artist/john-rod-dondoyano/1716913960"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Button variant={'secondary'}><FaApple />Apple Music</Button>
+      </a>
+      <a
+        href="https://open.spotify.com/artist/2opN2BRNgnBJIO932Kyr3U"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Button variant={'secondary'}><FaSpotify />Spotify</Button>
+      </a>
+    </div>
+  </article>
+  <FormWithRecaptcha client:load />
+</RootLayout>

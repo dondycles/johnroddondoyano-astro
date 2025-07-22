@@ -90,42 +90,15 @@ const structuredData = {
   </head>
   <body class="font-ubuntu-mono text-foreground bg-background antialiased">
     <main
-      class="prose prose-neutral prose-a:no-underline dark:prose-invert mx-auto flex max-w-4xl flex-col space-y-4 px-4 py-12"
+      class="prose prose-neutral prose-a:no-underline dark:prose-invert mx-auto flex max-w-4xl flex-col gap-y-8 px-4 py-12"
     >
-      <header>
-        <h1>{seo?.title ? `${seo?.title}${DEFAULT_TITLE}` : DEFAULT_TITLE}</h1>
-        <p class="prose-a:underline">
-          A growing pianist on <a
-            href="https://youtube.com/johnroddondoyano"
-            target="_blank"
-            rel="noopener noreferrer">YouTube</a
-          >
-          and an aspiring professional, driven by a dual passion for <a href="/music">music</a> and <a
-            href="/web-development">web development</a
-          >, harboring ambitions for a distinguished career in both fields.
-        </p>
-        <div class="inline-flex flex-wrap gap-2">
-          <a href="/music">
-            <Button variant={url.pathname.startsWith('/music') ? 'default' : 'outline'}
-              ><FaMusic />Music</Button
-            >
-          </a>
-          <a href="/web-development">
-            <Button variant={url.pathname.startsWith('/web-development') ? 'default' : 'outline'}
-              ><FaCode />Web Development</Button
-            >
-          </a>
-          <a href="/talk-to-me">
-            <Button variant={url.pathname.startsWith('/talk-to-me') ? 'default' : 'outline'}
-              ><FaComment />Talk to me</Button
-            >
-          </a>
-        </div>
-      </header>
       <slot />
-      <br />
-      <footer>
-        <nav aria-label="Social media links" class="inline-flex h-fit flex-wrap items-center gap-4">
+      <footer class="bg-input/10 rounded-md p-4">
+        <h2>Let's Connect!</h2>
+        <nav
+          aria-label="Social media links"
+          class="inline-flex h-fit w-full flex-wrap items-center gap-4"
+        >
           {
             SOCIALS.map((social) => (
               <a href={social.link} target="_blank" rel="noopener noreferrer">
@@ -133,17 +106,13 @@ const structuredData = {
               </a>
             ))
           }
-          <ThemeToggle client:load />
         </nav>
-        <figure class="h-fit w-fit shrink-0">
+        <figure class="bg-input/30 h-fit w-fit rounded-md">
           <a href="/">
-            <img
-              class="bg-input/10 max-h-24 w-fit rounded-md p-4 not-dark:invert"
-              src="transparent-logo.png"
-              alt="Logo"
-            />
+            <img class="max-h-24 w-fit p-4 not-dark:invert" src="transparent-logo.png" alt="Logo" />
           </a>
         </figure>
+        <ThemeToggle client:load />
       </footer>
     </main>
     <Toaster client:load richColors={true} />

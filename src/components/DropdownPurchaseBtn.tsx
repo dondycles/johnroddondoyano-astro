@@ -10,7 +10,7 @@ export default function DropdownPurchaseBtn() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button>
+        <Button className="w-fit">
           <FaDollarSign /> Purchase
         </Button>
       </DropdownMenuTrigger>

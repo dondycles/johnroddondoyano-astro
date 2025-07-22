@@ -50,65 +50,68 @@ export default function TalkForm() {
     toast.success('Submitted!');
   }
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(handleSubmitForm)} className="space-y-6">
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Email</FormLabel>
-              <FormControl>
-                <Input {...field} placeholder="Your email" />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="name"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Name</FormLabel>
-              <FormControl>
-                <Input {...field} placeholder="Your name" />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />{' '}
-        <FormField
-          control={form.control}
-          name="subject"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Subject</FormLabel>
-              <FormControl>
-                <Input {...field} placeholder="e.g. 'Can't Buy Piano Sheet'" />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />{' '}
-        <FormField
-          control={form.control}
-          name="message"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Message</FormLabel>
-              <FormControl>
-                <Textarea {...field} placeholder="Message" />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button disabled={form.formState.isSubmitting}>
-          {form.formState.isSubmitting ? 'Sending...' : 'Send'}
-          {form.formState.isSubmitting ? <Loader2 className="animate-spin" /> : <Send />}
-        </Button>
-      </form>
-    </Form>
+    <div className="bg-input/10 space-y-8 rounded-md p-4">
+      <h2>Talk To Me</h2>
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(handleSubmitForm)} className="space-y-6">
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Email</FormLabel>
+                <FormControl>
+                  <Input {...field} placeholder="Your email" />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Name</FormLabel>
+                <FormControl>
+                  <Input {...field} placeholder="Your name" />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />{' '}
+          <FormField
+            control={form.control}
+            name="subject"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Subject</FormLabel>
+                <FormControl>
+                  <Input {...field} placeholder="e.g. 'Can't Buy Piano Sheet'" />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />{' '}
+          <FormField
+            control={form.control}
+            name="message"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Message</FormLabel>
+                <FormControl>
+                  <Textarea {...field} placeholder="Message" />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <Button disabled={form.formState.isSubmitting}>
+            {form.formState.isSubmitting ? 'Sending...' : 'Send'}
+            {form.formState.isSubmitting ? <Loader2 className="animate-spin" /> : <Send />}
+          </Button>
+        </form>
+      </Form>
+    </div>
   );
 }
