@@ -11,7 +11,7 @@ export const talkFormSchema = z.object({
 });
 const resend = new Resend(import.meta.env.RESEND_API_KEY);
 async function verifyRecaptcha(token: string): Promise<boolean> {
-  const secret = import.meta.env.PUBLIC_RECAPTCHA_SECRET_KEY;
+  const secret = import.meta.env.RECAPTCHA_SECRET_KEY;
 
   const res = await fetch('https://www.google.com/recaptcha/api/siteverify', {
     method: 'POST',
