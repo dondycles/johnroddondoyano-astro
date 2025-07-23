@@ -8,7 +8,6 @@ import {
   FaXTwitter,
   FaYoutube,
 } from 'react-icons/fa6';
-import { IoMdMail } from 'react-icons/io';
 export const SOCIALS = [
   {
     link: 'https://youtube.com/johnroddondoyano',
@@ -39,10 +38,7 @@ export const SOCIALS = [
     link: 'https://x.com/dondycles',
     icon: FaXTwitter,
   },
-  {
-    link: 'https://mail.google.com/mail/u/0/?fs=1&to=johnroddondoyano8@gmail.com&tf=cm',
-    icon: IoMdMail,
-  },
+
   {
     link: 'https://github.com/dondycles',
     icon: FaGithub,

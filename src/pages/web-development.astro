@@ -27,10 +27,15 @@ import { TECH_STACKS } from '@/lib/tech-stacks';
     <h2>Tech Stacks</h2>
     <div class="flex flex-wrap gap-4 text-2xl">
       {
-        TECH_STACKS.map((stack) => (
-          <div class="flex items-center gap-1 underline">
+        TECH_STACKS.map((stack, i) => (
+          <div class="flex items-center gap-1">
             <stack.icon />
-            <p class="mt-0 mb-0 text-base">{stack.name}</p>
+            <p class="mt-0 mb-0 text-base">
+              <span>{stack.name}</span>
+              <span hidden={TECH_STACKS.length === i + 1} class="-ml-2 text-base">
+                ,
+              </span>
+            </p>
           </div>
         ))
       }
@@ -39,28 +44,35 @@ import { TECH_STACKS } from '@/lib/tech-stacks';
   <article class="bg-input/10 rounded-md p-4">
     <h2>Experiences</h2>
     <p>My experiences so far</p>
-    <ul>
+    <div class="space-y-4">
       {
         EXPERIENCES.map((exp) => (
-          <li>
-            <div class="inline-flex items-end space-x-4">
-              <img src={exp.icon as string} alt={exp.name + 'Logo'} class="mb-0 h-10 w-fit" />
-              <h3 class="mb-0">{exp.name}</h3>
+          <div class="rounded-md border p-4">
+            <div class="inline-flex items-center gap-4">
+              <img
+                src={exp.icon as string}
+                alt={exp.name + 'Logo'}
+                class="mt-0 mb-auto h-10 w-fit"
+              />
+              <h3 class="mt-0 mb-0">{exp.name}</h3>
             </div>
             <p>{exp.description}</p>
             <p>date: {exp.date}</p>
             <div class="flex flex-wrap items-end gap-4 text-2xl">
               <p class="mt-0 mb-0 text-base">stacks: </p>
-              {exp.tech_stacks.map((stack) => (
-                <div class="inline-flex items-center gap-1 underline">
+              {exp.tech_stacks.map((stack, i) => (
+                <div class="inline-flex items-center gap-1">
                   <stack.icon />
                   <span class="mt-0 mb-0 text-base">{stack.name}</span>
+                  <span hidden={exp.tech_stacks.length === i + 1} class="text-base">
+                    ,
+                  </span>
                 </div>
               ))}
             </div>
             <div class="prose-a:underline flex flex-wrap items-end gap-4">
               <p class="mb-0">links: </p>
-              {exp.links.map((link) => (
+              {exp.links.map((link, i) => (
                 <a
                   href={link.link}
                   target="_blank"
@@ -68,42 +80,48 @@ import { TECH_STACKS } from '@/lib/tech-stacks';
                   class="prose-p:mb-0 prose-p:mt-0"
                 >
                   <span>{link.name}</span>
+                  <span hidden={exp.links.length === i + 1} class="-ml-2 text-base">
+                    ,
+                  </span>
                 </a>
               ))}
             </div>
-          </li>
+          </div>
         ))
       }
-    </ul>
+    </div>
   </article>
   <article class="bg-input/10 rounded-md p-4">
     <h2>Other Projects</h2>
     <p>Just for fun</p>
-    <ul>
+    <div class="space-y-4">
       {
         OWN_PROJECTS.map((project) => (
-          <li>
-            <div class="inline-flex items-end space-x-4">
+          <div class="rounded-md border p-4">
+            <div class="inline-flex items-center gap-4">
               <img
                 src={project.icon as string}
                 alt={project.name + 'Logo'}
-                class="mb-0 h-10 w-fit"
+                class="mt-0 mb-auto h-10 w-fit"
               />
-              <h3 class="mb-0">{project.name}</h3>
+              <h3 class="mt-0 mb-0">{project.name}</h3>
             </div>
             <p>{project.description}</p>
             <div class="flex flex-wrap items-end gap-4 text-2xl">
               <p class="mt-0 mb-0 text-base">stacks: </p>
-              {project.tech_stacks.map((stack) => (
-                <div class="inline-flex items-center gap-1 underline">
+              {project.tech_stacks.map((stack, i) => (
+                <div class="inline-flex items-center gap-1">
                   <stack.icon />
                   <span class="mt-0 mb-0 text-base">{stack.name}</span>
+                  <span hidden={project.tech_stacks.length === i + 1} class="text-base">
+                    ,
+                  </span>
                 </div>
               ))}
             </div>
             <div class="prose-a:underline flex flex-wrap items-end gap-4">
               <p class="mb-0">links: </p>
-              {project.links.map((link) => (
+              {project.links.map((link, i) => (
                 <a
                   href={link.link}
                   target="_blank"
@@ -111,12 +129,15 @@ import { TECH_STACKS } from '@/lib/tech-stacks';
                   class="prose-p:mb-0 prose-p:mt-0"
                 >
                   <span>{link.name}</span>
+                  <span hidden={project.links.length === i + 1} class="-ml-2 text-base">
+                    ,
+                  </span>
                 </a>
               ))}
             </div>
-          </li>
+          </div>
         ))
       }
-    </ul>
+    </div>
   </article>
 </RootLayout>
