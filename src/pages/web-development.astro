@@ -47,7 +47,7 @@ import { TECH_STACKS } from '@/lib/tech-stacks';
     <div class="space-y-4">
       {
         EXPERIENCES.map((exp) => (
-          <div class="rounded-md border p-4">
+          <section class="rounded-md border p-4">
             <div class="inline-flex items-center gap-4">
               <img
                 src={exp.icon as string}
@@ -86,7 +86,7 @@ import { TECH_STACKS } from '@/lib/tech-stacks';
                 </a>
               ))}
             </div>
-          </div>
+          </section>
         ))
       }
     </div>
@@ -97,7 +97,7 @@ import { TECH_STACKS } from '@/lib/tech-stacks';
     <div class="space-y-4">
       {
         OWN_PROJECTS.map((project) => (
-          <div class="rounded-md border p-4">
+          <section class="rounded-md border p-4">
             <div class="inline-flex items-center gap-4">
               <img
                 src={project.icon as string}
@@ -135,7 +135,7 @@ import { TECH_STACKS } from '@/lib/tech-stacks';
                 </a>
               ))}
             </div>
-          </div>
+          </section>
         ))
       }
     </div>
