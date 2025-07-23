@@ -28,13 +28,13 @@ export function ThemeToggle() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button size="icon" variant={'secondary'}>
+        <Button size="icon" variant={'outline'}>
           <FaRegSun className="size-5 scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
           <FaRegMoon className="absolute size-5 scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" sideOffset={12}>
+      <DropdownMenuContent align="start" sideOffset={12}>
         <DropdownMenuItem onClick={() => setThemeState('theme-light')}>
           <span className="flex-1">Light</span>
           {theme === 'theme-light' ? <Check /> : null}

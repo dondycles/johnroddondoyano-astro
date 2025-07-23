@@ -1,5 +1,4 @@
 ---
-import FormWithRecaptcha from '@/components/FormWithRecaptcha';
 import { Button } from '@/components/ui/button';
 import RootLayout from '@/layouts/RootLayout.astro';
 import { FaApple, FaFile, FaMusic, FaSpotify, FaYoutube } from 'react-icons/fa6';
@@ -12,6 +11,15 @@ import { FaApple, FaFile, FaMusic, FaSpotify, FaYoutube } from 'react-icons/fa6'
   }}
 >
   <header>
+    <figure class="bg-input/30 mt-0 h-fit w-fit rounded-md">
+      <a href="/">
+        <img
+          class="mt-0 max-h-24 w-fit p-4 not-dark:invert"
+          src="transparent-logo.png"
+          alt="Logo"
+        />
+      </a>
+    </figure>
     <h1>John Rod Dondoyano</h1>
     <p class="prose-a:underline">
       A growing pianist on <a
@@ -77,5 +85,4 @@ import { FaApple, FaFile, FaMusic, FaSpotify, FaYoutube } from 'react-icons/fa6'
       </a>
     </div>
   </article>
-  <FormWithRecaptcha client:load />
 </RootLayout>
