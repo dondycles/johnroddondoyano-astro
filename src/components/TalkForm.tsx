@@ -52,6 +52,7 @@ export default function TalkForm() {
   return (
     <div className="bg-input/10 space-y-8 rounded-md p-4">
       <h2>Talk To Me</h2>
+      <p>Any inquiries? Send it to me by filling up the form below.</p>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(handleSubmitForm)} className="space-y-6">
           <FormField
@@ -87,7 +88,10 @@ export default function TalkForm() {
               <FormItem>
                 <FormLabel>Subject</FormLabel>
                 <FormControl>
-                  <Input {...field} placeholder="e.g. 'Can't Buy Piano Sheet'" />
+                  <Input
+                    {...field}
+                    placeholder="e.g. 'Cannot Buy Piano Sheet', 'Website Quotation'"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>

@@ -9,9 +9,7 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 import '@/styles/global.css';
 import '@fontsource-variable/sometype-mono';
 import { SEO } from 'astro-seo';
-import { Button } from '@/components/ui/button';
 import { SOCIALS } from '@/lib/socials';
-import { FaCode, FaComment, FaMusic } from 'react-icons/fa6';
 import { Toaster } from '@/components/ui/sonner';
 import FormWithRecaptcha from '@/components/FormWithRecaptcha';
 const { seo } = Astro.props;
@@ -98,6 +96,7 @@ const structuredData = {
       <footer class="space-y-6">
         <div class="bg-input/10 rounded-md p-4">
           <h2>Let's Connect!</h2>
+          <p>You can find me on...</p>
           <nav
             aria-label="Social media links"
             class="inline-flex h-fit w-full flex-wrap items-center gap-4 text-xl"
@@ -111,7 +110,6 @@ const structuredData = {
             }
           </nav>
         </div>
-
         <div class="flex flex-wrap items-end-safe gap-2">
           <ThemeToggle client:load />
           <span class="text-muted-foreground flex-1 text-right"> John Rod Dondoyano | 2025</span>
