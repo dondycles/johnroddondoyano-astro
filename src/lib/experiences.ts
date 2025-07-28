@@ -1,5 +1,4 @@
 import {
-  TbBrandAstro,
   TbBrandJavascript,
   TbBrandNextjs,
   TbBrandSupabase,
@@ -13,10 +12,9 @@ export const EXPERIENCES = [
     icon: 'https://santienzphilsinc.com/favicon.ico',
     name: 'Santienz Phils. Inc.',
     description:
-      'Built two websites for the company. Public website and the admin portal where they can modify the contents in the public protal. The public website was build with Astro and the admin portal was built with NextJS.',
+      'Built two websites for the company. Public website and the admin portal where they can modify the contents in the public protal.',
     date: 'Jul 2025',
     tech_stacks: [
-      { name: 'Astro', icon: TbBrandAstro },
       { name: 'NextJS', icon: TbBrandNextjs },
       { name: 'Supabase', icon: TbBrandSupabase },
       { name: 'TailwindCSS', icon: TbBrandTailwind },
