@@ -2,18 +2,88 @@
 import { Button } from '@/components/ui/button';
 import RootLayout from '@/layouts/RootLayout.astro';
 import { FaApple, FaFile, FaMusic, FaSpotify, FaYoutube } from 'react-icons/fa6';
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'John Rod Dondoyano',
+  url: 'https://johnroddondoyano.com',
+  image: 'https://johnroddondoyano.com/JRLOGO.png',
+  description:
+    'Musician and web developer. Expressing the syntax of music on YouTube and debugging the rhythm of web development.',
+  jobTitle: 'Musician & Web Developer',
+  sameAs: [
+    'https://youtube.com/johnroddondoyano',
+    'https://tiktok.com/@dondycles',
+    'https://open.spotify.com/artist/2opN2BRNgnBJIO932Kyr3U',
+    'https://music.apple.com/us/artist/john-rod-dondoyano/1716913960',
+    'https://facebook.com/dondycles',
+    'https://instagram.com/dondycles',
+    'https://x.com/dondycles',
+    'https://github.com/dondycles',
+  ],
+};
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Featured Offerings by John Rod Dondoyano',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: '300k Subscribers on YouTube',
+      url: 'https://youtube.com/johnroddondoyano',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: '300+ Piano Sheets',
+      url: 'https://mymusicsheet.com/johnroddondoyano',
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: '250+ MIDI/MXL Files',
+      url: 'https://payhip.com/johnroddondoyano',
+    },
+    {
+      '@type': 'ListItem',
+      position: 4,
+      name: 'Stream on Apple Music',
+      url: 'https://music.apple.com/us/artist/john-rod-dondoyano/1716913960',
+    },
+    {
+      '@type': 'ListItem',
+      position: 5,
+      name: 'Stream on Spotify',
+      url: 'https://open.spotify.com/artist/2opN2BRNgnBJIO932Kyr3U',
+    },
+  ],
+};
 ---
 
 <RootLayout
   seo={{
+    title: 'Musician & Web Developer | ',
     description:
-      'Expressing the syntax of music on YouTube and debugging the rhythm of web development. Sometimes programming from the piano bench, and often approaching the piano keys like a codebase — searching for the logic in every note.',
+      'John Rod Dondoyano — pianist with 300k YouTube subscribers, 300+ piano sheets, and a passion for web development. Explore piano covers, sheet music, MIDI files, and more.',
   }}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+
   <header>
     <figure class="mt-0 h-fit w-fit">
-      <a href="/">
-        <img class="mt-0 max-h-24 w-fit rounded-md border" src="JRLOGO.png" alt="Logo" />
+      <a href="/" aria-label="John Rod Dondoyano — Home">
+        <img
+          class="mt-0 max-h-24 w-fit rounded-md border"
+          src="JRLOGO.png"
+          alt="John Rod Dondoyano — Musician, and Web Developer"
+          width="96"
+          height="96"
+          loading="eager"
+        />
       </a>
     </figure>
     <h1>John Rod Dondoyano</h1>
@@ -21,63 +91,84 @@ import { FaApple, FaFile, FaMusic, FaSpotify, FaYoutube } from 'react-icons/fa6'
       Expressing the syntax of music on <a
         href="https://youtube.com/johnroddondoyano"
         target="_blank"
-        rel="noopener noreferrer">YouTube</a
+        rel="noopener noreferrer"
+        aria-label="John Rod Dondoyano on YouTube">YouTube</a
       > and debugging the rhythm of <a href="/web-development">web development</a>. Sometimes
       programming from the piano bench, and often approaching the piano keys like a codebase —
       searching for the logic in every note.
     </p>
   </header>
-  <article class="rounded-lg border p-4">
-    <h2>300k Subscribers on YouTube</h2>
-    <p>
-      Join a growing community of music lovers and piano enthusiasts who enjoy heartfelt renditions,
-      tutorials, and creative arrangements from my YouTube channel.
-    </p>
-    <a href="https://youtube.com/johnroddondoyano" target="_blank" rel="noopener noreferrer">
-      <Button variant={'secondary'}><FaYoutube />Subscribe!</Button>
-    </a>
-  </article>
-  <article class="rounded-lg border p-4">
-    <h2>300+ Piano Sheets</h2>
-    <p>
-      Explore an extensive collection of piano sheet music—perfect for all skill levels. Every piece
-      is transcribed with care and accuracy.
-    </p>
-    <a href="https://mymusicsheet.com/johnroddondoyano" target="_blank" rel="noopener noreferrer">
-      <Button variant={'secondary'}><FaMusic />Buy Piano Sheets</Button>
-    </a>
-  </article>
-  <article class="rounded-lg border p-4">
-    <h2>250+ MIDI/MXL Files</h2>
-    <p>
-      Take your piano practice to the next level with downloadable MIDI and MusicXML files
-      compatible with Synthesia and notation software — great for visual learners.
-    </p>
-    <a href="https://payhip.com/johnroddondoyano" target="_blank" rel="noopener noreferrer">
-      <Button variant={'secondary'}><FaFile />Buy MIDI/MusicXML Files</Button>
-    </a>
-  </article>
-  <article class="rounded-lg border p-4">
-    <h2>10k+ Listeners on Music Stores</h2>
-    <p>
-      Stream my original compositions and piano covers on popular music platforms. Whether you're
-      working, studying, or relaxing—let the music inspire you.
-    </p>
-    <div class="inline-flex flex-wrap gap-2">
+
+  <section class="space-y-8" aria-label="Featured content and offerings">
+    <article class="rounded-lg border p-4">
+      <h2>300k Subscribers on YouTube</h2>
+      <p>
+        Join a growing community of music lovers and piano enthusiasts who enjoy heartfelt
+        renditions, tutorials, and creative arrangements from my YouTube channel.
+      </p>
       <a
-        href="https://music.apple.com/us/artist/john-rod-dondoyano/1716913960"
+        href="https://youtube.com/johnroddondoyano"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Subscribe to John Rod Dondoyano on YouTube"
       >
-        <Button variant={'secondary'}><FaApple />Apple Music</Button>
+        <Button variant={'secondary'}><FaYoutube />Subscribe!</Button>
       </a>
+    </article>
+    <article class="rounded-lg border p-4">
+      <h2>300+ Piano Sheets</h2>
+      <p>
+        Explore an extensive collection of piano sheet music—perfect for all skill levels. Every
+        piece is transcribed with care and accuracy.
+      </p>
       <a
-        href="https://open.spotify.com/artist/2opN2BRNgnBJIO932Kyr3U"
+        href="https://mymusicsheet.com/johnroddondoyano"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Buy piano sheet music by John Rod Dondoyano on MyMusicSheet"
       >
-        <Button variant={'secondary'}><FaSpotify />Spotify</Button>
+        <Button variant={'secondary'}><FaMusic />Buy Piano Sheets</Button>
       </a>
-    </div>
-  </article>
+    </article>
+    <article class="rounded-lg border p-4">
+      <h2>250+ MIDI/MXL Files</h2>
+      <p>
+        Take your piano practice to the next level with downloadable MIDI and MusicXML files
+        compatible with Synthesia and notation software — great for visual learners.
+      </p>
+      <a
+        href="https://payhip.com/johnroddondoyano"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Buy MIDI and MusicXML files by John Rod Dondoyano on Payhip"
+      >
+        <Button variant={'secondary'}><FaFile />Buy MIDI/MusicXML Files</Button>
+      </a>
+    </article>
+    <article class="rounded-lg border p-4">
+      <h2>10k+ Listeners on Music Stores</h2>
+      <p>
+        Stream my original compositions and piano covers on popular music platforms. Whether you're
+        working, studying, or relaxing—let the music inspire you.
+      </p>
+      <nav aria-label="Music streaming platforms" class="inline-flex flex-wrap gap-2">
+        <a
+          href="https://music.apple.com/us/artist/john-rod-dondoyano/1716913960"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Listen to John Rod Dondoyano on Apple Music"
+        >
+          <Button variant={'secondary'}><FaApple />Apple Music</Button>
+        </a>
+        <a
+          href="https://open.spotify.com/artist/2opN2BRNgnBJIO932Kyr3U"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Listen to John Rod Dondoyano on Spotify"
+        >
+          <Button variant={'secondary'}><FaSpotify />Spotify</Button>
+        </a>
+      </nav>
+    </article>
+  </section>
 </RootLayout>

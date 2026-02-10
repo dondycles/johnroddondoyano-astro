@@ -5,136 +5,211 @@ import { TbCode } from 'react-icons/tb';
 import { EXPERIENCES } from '@/lib/experiences';
 import { OWN_PROJECTS } from '@/lib/own-projects';
 import { TECH_STACKS } from '@/lib/tech-stacks';
+
+const profilePageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  mainEntity: {
+    '@type': 'Person',
+    name: 'John Rod Dondoyano',
+    url: 'https://johnroddondoyano.com',
+    jobTitle: 'Musician & Web Developer',
+    knowsAbout: TECH_STACKS.map((stack) => stack.name),
+  },
+};
+
+const experienceListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Web Development Experiences by John Rod Dondoyano',
+  itemListElement: EXPERIENCES.map((exp, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'CreativeWork',
+      name: exp.name,
+      description: exp.description,
+      datePublished: exp.date,
+      url: exp.links[0]?.link,
+    },
+  })),
+};
+
+const projectListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Personal Projects by John Rod Dondoyano',
+  itemListElement: OWN_PROJECTS.map((project, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'WebApplication',
+      name: project.name,
+      description: project.description,
+      url: project.links[0]?.link,
+    },
+  })),
+};
 ---
 
 <RootLayout
   seo={{
     title: 'Web Development | ',
-    description: 'Just a hobby of creating sleek websites.',
+    description:
+      "Explore John Rod Dondoyano's web development portfolio — professional experiences, personal projects, and tech stacks including React, Next.js, TypeScript, Supabase, and more.",
   }}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(profilePageSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(experienceListSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(projectListSchema)} />
+
   <header>
     <h1>
-      <TbCode client:only className="inline" />
-      <span class="sr-only">Web Development | John Rod Dondoyano</span>
+      <TbCode client:only className="inline" aria-hidden="true" />
+      Web Development
     </h1>
-    <p class="prose-a:underline">Just a hobby of creating sleek websites.</p>
+    <p class="prose-a:underline">
+      A hobby of creating sleek websites — built with modern frameworks and a passion for
+      pixel-perfect, performant user experiences.
+    </p>
   </header>
-  <article class="rounded-lg border p-4">
-    <h2>Tech Stacks</h2>
-    <div class="flex flex-wrap gap-4 text-2xl">
-      {
-        TECH_STACKS.map((stack, i) => (
-          <div class="flex items-center gap-1">
-            <stack.icon />
-            <p class="mt-0 mb-0 text-base">
-              <span>{stack.name}</span>
-              <span hidden={TECH_STACKS.length === i + 1} class="-ml-2 text-base">
-                ,
-              </span>
-            </p>
-          </div>
-        ))
-      }
-    </div>
-  </article>
-  <article class="rounded-lg border p-4">
-    <h2>Experiences</h2>
-    <p>My experiences so far</p>
-    <div class="space-y-4">
-      {
-        EXPERIENCES.map((exp) => (
-          <section class="dark:bg-input/30 rounded-lg border p-4">
-            <div class="inline-flex items-center gap-4">
-              <img
-                src={exp.icon as string}
-                alt={exp.name + 'Logo'}
-                class="mt-0 mb-auto h-10 w-fit"
-              />
-              <h3 class="mt-0 mb-0">{exp.name}</h3>
-            </div>
-            <p>{exp.description}</p>
-            <p>date: {exp.date}</p>
-            <div class="flex flex-wrap items-end gap-4 text-2xl">
-              <p class="mt-0 mb-0 text-base">stacks: </p>
-              {exp.tech_stacks.map((stack, i) => (
-                <div class="inline-flex items-center gap-1">
-                  <stack.icon />
-                  <span class="mt-0 mb-0 text-base">{stack.name}</span>
-                  <span hidden={exp.tech_stacks.length === i + 1} class="text-base">
-                    ,
-                  </span>
-                </div>
-              ))}
-            </div>
-            <div class="prose-a:underline flex flex-wrap items-end gap-4">
-              <p class="mb-0">links: </p>
-              {exp.links.map((link, i) => (
-                <a
-                  href={link.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="prose-p:mb-0 prose-p:mt-0"
-                >
-                  <span>{link.name}</span>
-                  <span hidden={exp.links.length === i + 1} class="-ml-2 text-base">
-                    ,
-                  </span>
-                </a>
-              ))}
-            </div>
-          </section>
-        ))
-      }
-    </div>
-  </article>
-  <article class="rounded-lg border p-4">
-    <h2>Other Projects</h2>
-    <p>Just for fun</p>
-    <div class="space-y-4">
-      {
-        OWN_PROJECTS.map((project) => (
-          <section class="dark:bg-input/30 rounded-md border p-4">
-            <div class="inline-flex items-center gap-4">
-              <img
-                src={project.icon as string}
-                alt={project.name + 'Logo'}
-                class="mt-0 mb-auto h-10 w-fit"
-              />
-              <h3 class="mt-0 mb-0">{project.name}</h3>
-            </div>
-            <p>{project.description}</p>
-            <div class="flex flex-wrap items-end gap-4 text-2xl">
-              <p class="mt-0 mb-0 text-base">stacks: </p>
-              {project.tech_stacks.map((stack, i) => (
-                <div class="inline-flex items-center gap-1">
-                  <stack.icon />
-                  <span class="mt-0 mb-0 text-base">{stack.name}</span>
-                  <span hidden={project.tech_stacks.length === i + 1} class="text-base">
-                    ,
-                  </span>
-                </div>
-              ))}
-            </div>
-            <div class="prose-a:underline flex flex-wrap items-end gap-4">
-              <p class="mb-0">links: </p>
-              {project.links.map((link, i) => (
-                <a
-                  href={link.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="prose-p:mb-0 prose-p:mt-0"
-                >
-                  <span>{link.name}</span>
-                  <span hidden={project.links.length === i + 1} class="-ml-2 text-base">
-                    ,
-                  </span>
-                </a>
-              ))}
-            </div>
-          </section>
-        ))
-      }
-    </div>
-  </article>
+
+  <section aria-label="Technical skills and tools">
+    <article class="rounded-lg border p-4">
+      <h2>Tech Stacks</h2>
+      <ul
+        class="prose-li:mb-0 prose-li:mt-0 mb-0 flex list-none flex-wrap gap-4 p-0 text-2xl"
+        role="list"
+      >
+        {
+          TECH_STACKS.map((stack, i) => (
+            <li class="dark:bg-input/30 flex items-center gap-2 rounded-md border p-4">
+              <stack.icon aria-hidden="true" />
+              <p class="mt-0 mb-0 text-base">
+                <span>{stack.name}</span>
+                <span hidden={TECH_STACKS.length === i + 1} class="-ml-2 text-base">
+                  ,
+                </span>
+              </p>
+            </li>
+          ))
+        }
+      </ul>
+    </article>
+  </section>
+
+  <section aria-label="Professional experiences">
+    <article class="rounded-lg border p-4">
+      <h2>Experiences</h2>
+      <p>My experiences so far</p>
+      <div class="space-y-4">
+        {
+          EXPERIENCES.map((exp) => (
+            <section class="dark:bg-input/30 rounded-lg border p-4">
+              <div class="inline-flex items-center gap-4">
+                <img
+                  src={exp.icon as string}
+                  alt={`${exp.name} logo`}
+                  class="mt-0 mb-auto h-10 w-fit"
+                  width="40"
+                  height="40"
+                  loading="lazy"
+                />
+                <h3 class="mt-0 mb-0">{exp.name}</h3>
+              </div>
+              <p>{exp.description}</p>
+              <p>
+                <time>{exp.date}</time>
+              </p>
+              <div class="flex flex-wrap items-end gap-4 text-2xl">
+                <p class="mt-0 mb-0 text-base">stacks: </p>
+                {exp.tech_stacks.map((stack, i) => (
+                  <div class="inline-flex items-center gap-1">
+                    <stack.icon aria-hidden="true" />
+                    <span class="mt-0 mb-0 text-base">{stack.name}</span>
+                    <span hidden={exp.tech_stacks.length === i + 1} class="text-base">
+                      ,
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <div class="prose-a:underline flex flex-wrap items-end gap-4">
+                <p class="mb-0">links: </p>
+                {exp.links.map((link, i) => (
+                  <a
+                    href={link.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Visit ${link.name} for ${exp.name}`}
+                    class="prose-p:mb-0 prose-p:mt-0"
+                  >
+                    <span>{link.name}</span>
+                    <span hidden={exp.links.length === i + 1} class="-ml-2 text-base">
+                      ,
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </section>
+          ))
+        }
+      </div>
+    </article>
+  </section>
+
+  <section aria-label="Personal projects">
+    <article class="rounded-lg border p-4">
+      <h2>Other Projects</h2>
+      <p>Just for fun</p>
+      <div class="space-y-4">
+        {
+          OWN_PROJECTS.map((project) => (
+            <section class="dark:bg-input/30 rounded-md border p-4">
+              <div class="inline-flex items-center gap-4">
+                <img
+                  src={project.icon as string}
+                  alt={`${project.name} logo`}
+                  class="mt-0 mb-auto h-10 w-fit"
+                  width="40"
+                  height="40"
+                  loading="lazy"
+                />
+                <h3 class="mt-0 mb-0">{project.name}</h3>
+              </div>
+              <p>{project.description}</p>
+              <div class="flex flex-wrap items-end gap-4 text-2xl">
+                <p class="mt-0 mb-0 text-base">stacks: </p>
+                {project.tech_stacks.map((stack, i) => (
+                  <div class="inline-flex items-center gap-1">
+                    <stack.icon aria-hidden="true" />
+                    <span class="mt-0 mb-0 text-base">{stack.name}</span>
+                    <span hidden={project.tech_stacks.length === i + 1} class="text-base">
+                      ,
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <div class="prose-a:underline flex flex-wrap items-end gap-4">
+                <p class="mb-0">links: </p>
+                {project.links.map((link, i) => (
+                  <a
+                    href={link.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Visit ${link.name} for ${project.name}`}
+                    class="prose-p:mb-0 prose-p:mt-0"
+                  >
+                    <span>{link.name}</span>
+                    <span hidden={project.links.length === i + 1} class="-ml-2 text-base">
+                      ,
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </section>
+          ))
+        }
+      </div>
+    </article>
+  </section>
 </RootLayout>
