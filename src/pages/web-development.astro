@@ -10,8 +10,7 @@ import { TECH_STACKS } from '@/lib/tech-stacks';
 <RootLayout
   seo={{
     title: 'Web Development | ',
-    description:
-      'A hobby of creating sleek websites and aspires to be a professional in this field.',
+    description: 'Just a hobby of creating sleek websites.',
   }}
 >
   <header>
@@ -19,11 +18,9 @@ import { TECH_STACKS } from '@/lib/tech-stacks';
       <TbCode client:only className="inline" />
       <span class="sr-only">Web Development | John Rod Dondoyano</span>
     </h1>
-    <p class="prose-a:underline">
-      A hobby of creating sleek websites and aspires to be a professional in this field.
-    </p>
+    <p class="prose-a:underline">Just a hobby of creating sleek websites.</p>
   </header>
-  <article class="bg-input/10 rounded-md p-4">
+  <article class="rounded-lg border p-4">
     <h2>Tech Stacks</h2>
     <div class="flex flex-wrap gap-4 text-2xl">
       {
@@ -41,13 +38,13 @@ import { TECH_STACKS } from '@/lib/tech-stacks';
       }
     </div>
   </article>
-  <article class="bg-input/10 rounded-md p-4">
+  <article class="rounded-lg border p-4">
     <h2>Experiences</h2>
     <p>My experiences so far</p>
     <div class="space-y-4">
       {
         EXPERIENCES.map((exp) => (
-          <section class="rounded-md border p-4">
+          <section class="dark:bg-input/30 rounded-lg border p-4">
             <div class="inline-flex items-center gap-4">
               <img
                 src={exp.icon as string}
@@ -91,13 +88,13 @@ import { TECH_STACKS } from '@/lib/tech-stacks';
       }
     </div>
   </article>
-  <article class="bg-input/10 rounded-md p-4">
+  <article class="rounded-lg border p-4">
     <h2>Other Projects</h2>
     <p>Just for fun</p>
     <div class="space-y-4">
       {
         OWN_PROJECTS.map((project) => (
-          <section class="rounded-md border p-4">
+          <section class="dark:bg-input/30 rounded-md border p-4">
             <div class="inline-flex items-center gap-4">
               <img
                 src={project.icon as string}

@@ -6,6 +6,7 @@ import react from '@astrojs/react';
 
 import sitemap from '@astrojs/sitemap';
 
+// @ts-ignore
 import vercel from '@astrojs/vercel';
 
 // https://astro.build/config

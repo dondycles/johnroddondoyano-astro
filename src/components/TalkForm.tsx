@@ -50,7 +50,7 @@ export default function TalkForm() {
     toast.success('Submitted!');
   }
   return (
-    <div className="bg-input/10 space-y-8 rounded-md p-4">
+    <div className="space-y-8 rounded-lg border p-4">
       <h2>Talk To Me</h2>
       <p>Any inquiries? Send it to me by filling up the form below.</p>
       <Form {...form}>
