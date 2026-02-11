@@ -63,29 +63,27 @@ const projectListSchema = {
   <script type="application/ld+json" set:html={JSON.stringify(experienceListSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(projectListSchema)} />
 
-  <header>
-    <h1>
-      <TbCode client:only className="inline" aria-hidden="true" />
-      Web Development
-    </h1>
-    <p class="prose-a:underline">
-      A hobby of creating sleek websites — built with modern frameworks and a passion for
-      pixel-perfect, performant user experiences.
-    </p>
+  <header class="bg-foreground dark:bg-foreground w-full shadow-[0px_12px_0px_#00000011]">
+    <div class="mx-auto max-w-2xl px-4 py-16 sm:py-24">
+      <h1 class="text-background text-4xl font-bold">
+        <TbCode client:only className="inline" aria-hidden="true" />
+        Web Development
+      </h1>
+      <p class="text-muted-foreground mt-6">
+        A hobby of creating sleek websites — built with modern frameworks and a passion for
+        pixel-perfect, performant user experiences.
+      </p>
+    </div>
   </header>
-
-  <section class="rounded-3xl border px-4 pb-12 shadow-lg" aria-label="Technical skills and tools">
-    <article>
-      <h2>Tech Stacks</h2>
-      <ul
-        class="prose-li:mb-0 prose-li:mt-0 mb-0 flex list-none flex-wrap gap-4 p-0 text-2xl"
-        role="list"
-      >
+  <section class="px-4 py-12" aria-label="Technical skills and tools">
+    <article class="space-y-6">
+      <h2 class="text-2xl font-bold">Tech Stacks</h2>
+      <ul class="mb-0 flex list-none flex-wrap gap-4 p-0 text-2xl" role="list">
         {
           TECH_STACKS.map((stack, i) => (
-            <li class="dark:bg-input/30 flex items-center gap-1 rounded-2xl border p-4">
+            <li class="dark:bg-input/30 flex items-center gap-1 border p-4 shadow-[6px_6px_0px_#00000011]">
               <stack.icon aria-hidden="true" />
-              <p class="mt-0 mb-0 text-base">
+              <p class="text-base">
                 <span>{stack.name}</span>
                 <span hidden={TECH_STACKS.length === i + 1} class="-ml-2 text-base">
                   ,
@@ -97,15 +95,14 @@ const projectListSchema = {
       </ul>
     </article>
   </section>
-
-  <section class="rounded-3xl border px-4 pb-12 shadow-lg" aria-label="Professional experiences">
-    <article>
-      <h2>Experiences</h2>
-      <p>My experiences so far</p>
-      <div class="flex flex-col divide-y rounded-2xl border">
+  <section class="border-t px-4 py-12" aria-label="Professional experiences">
+    <article class="space-y-6">
+      <h2 class="text-2xl font-bold">Experiences</h2>
+      <p class="text-muted-foreground">My experiences so far</p>
+      <div class="flex flex-col gap-4">
         {
           EXPERIENCES.map((exp) => (
-            <section class="px-4 py-12">
+            <section class="space-y-6 border px-4 py-12 shadow-[6px_6px_0px_#00000011]">
               <div class="inline-flex items-center gap-4">
                 <img
                   src={exp.icon as string}
@@ -115,33 +112,33 @@ const projectListSchema = {
                   height="40"
                   loading="lazy"
                 />
-                <h3 class="mt-0 mb-0">{exp.name}</h3>
+                <h3 class="text-lg font-bold">{exp.name}</h3>
               </div>
-              <p>{exp.description}</p>
-              <p>
+              <p class="text-muted-foreground">{exp.description}</p>
+              <p class="text-muted-foreground">
                 <time>{exp.date}</time>
               </p>
-              <div class="flex flex-wrap items-end gap-4 text-2xl">
-                <p class="mt-0 mb-0 text-base">stacks: </p>
+              <div class="flex flex-wrap items-end gap-4">
+                <span class="text-muted-foreground">stacks: </span>
                 {exp.tech_stacks.map((stack, i) => (
                   <div class="inline-flex items-center gap-1">
                     <stack.icon aria-hidden="true" />
-                    <span class="mt-0 mb-0 text-base">
+                    <span>
                       {stack.name}
                       {exp.tech_stacks.length === i + 1 ? null : ','}
                     </span>
                   </div>
                 ))}
               </div>
-              <div class="prose-a:underline flex flex-wrap items-end gap-2">
-                <p class="mb-0">links: </p>
+              <div class="flex flex-wrap items-end gap-2">
+                <span class="text-muted-foreground">links: </span>
                 {exp.links.map((link, i) => (
                   <a
                     href={link.link}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Visit ${link.name} for ${exp.name}`}
-                    class="prose-p:mb-0 prose-p:mt-0 inline-flex"
+                    class="inline-flex"
                   >
                     <span>
                       {link.name}
@@ -156,15 +153,14 @@ const projectListSchema = {
       </div>
     </article>
   </section>
-
-  <section class="rounded-3xl border px-4 pb-12 shadow-lg" aria-label="Personal projects">
-    <article>
-      <h2>Other Projects</h2>
-      <p>Just for fun</p>
-      <div class="flex flex-col divide-y rounded-2xl border">
+  <section class="border-t px-4 py-12" aria-label="Personal projects">
+    <article class="space-y-6">
+      <h2 class="text-2xl font-bold">Other Projects</h2>
+      <p class="text-muted-foreground">Just for fun</p>
+      <div class="flex flex-col gap-4">
         {
           OWN_PROJECTS.map((project) => (
-            <section class="px-4 py-12">
+            <section class="space-y-6 border px-4 py-12 shadow-[6px_6px_0px_#00000011]">
               <div class="inline-flex items-center gap-4">
                 <img
                   src={project.icon as string}
@@ -174,30 +170,30 @@ const projectListSchema = {
                   height="40"
                   loading="lazy"
                 />
-                <h3 class="mt-0 mb-0">{project.name}</h3>
+                <h3 class="text-xl font-bold">{project.name}</h3>
               </div>
-              <p>{project.description}</p>
-              <div class="flex flex-wrap items-end gap-4 text-2xl">
-                <p class="mt-0 mb-0 text-base">stacks: </p>
+              <p class="text-muted-foreground">{project.description}</p>
+              <div class="flex flex-wrap items-end gap-4">
+                <span class="text-muted-foreground">stacks: </span>
                 {project.tech_stacks.map((stack, i) => (
                   <div class="inline-flex items-center gap-1">
                     <stack.icon aria-hidden="true" />
-                    <span class="mt-0 mb-0 text-base">
+                    <span>
                       {stack.name}
                       {project.tech_stacks.length === i + 1 ? null : ','}
                     </span>
                   </div>
                 ))}
               </div>
-              <div class="prose-a:underline flex flex-wrap items-end gap-2">
-                <p class="mb-0">links: </p>
+              <div class="flex flex-wrap items-end gap-2">
+                <span class="text-muted-foreground">links: </span>
                 {project.links.map((link, i) => (
                   <a
                     href={link.link}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Visit ${link.name} for ${project.name}`}
-                    class="prose-p:mb-0 prose-p:mt-0 inline-flex"
+                    class="inline-flex"
                   >
                     <span>
                       {link.name}

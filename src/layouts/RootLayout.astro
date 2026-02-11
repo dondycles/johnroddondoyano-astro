@@ -87,29 +87,27 @@ const structuredData = {
       }}
     />
   </head>
-  <body class="font-google-sans-flex text-foreground bg-background antialiased">
+  <body class="font-google-sans-flex text-foreground bg-background antialiased [&_a]:underline">
     <main
-      class="prose prose-neutral prose-a:no-underline dark:prose-invert prose-a:text-[var(--tw-prose-body)] mx-auto flex max-w-4xl flex-col gap-y-10 px-4 pt-12 pb-8"
+      class="flex w-full flex-col pb-12 shadow-[0px_12px_0px_#00000011] [&>*:not(header)]:mx-auto [&>*:not(header)]:max-w-2xl"
     >
       <slot />
       <FormWithRecaptcha client:load />
-      <footer class="space-y-6">
-        <div>
-          <h2>Let's Connect!</h2>
-          <p>You can find me on...</p>
-          <nav
-            aria-label="Social media links"
-            class="inline-flex h-fit w-full flex-wrap items-center gap-4 text-xl drop-shadow"
-          >
-            {
-              SOCIALS.map((social) => (
-                <a href={social.link} target="_blank" rel="noopener noreferrer">
-                  <social.icon aria-hidden="true" /> <p class="sr-only text-base">{social.link}</p>
-                </a>
-              ))
-            }
-          </nav>
-        </div>
+      <footer class="mx-auto w-full max-w-2xl space-y-6 border-t px-4 py-12">
+        <h2 class="text-2xl font-bold">Let's Connect!</h2>
+        <p class="text-muted-foreground">You can find me on...</p>
+        <nav
+          aria-label="Social media links"
+          class="inline-flex h-fit w-full flex-wrap items-center gap-4 text-xl drop-shadow"
+        >
+          {
+            SOCIALS.map((social) => (
+              <a href={social.link} target="_blank" rel="noopener noreferrer">
+                <social.icon aria-hidden="true" /> <p class="sr-only text-base">{social.link}</p>
+              </a>
+            ))
+          }
+        </nav>
         <div class="flex flex-wrap items-end-safe gap-2">
           <ThemeToggle client:load />
           <span class="text-muted-foreground flex-1 text-right">

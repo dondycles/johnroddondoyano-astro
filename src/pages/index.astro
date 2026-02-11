@@ -72,39 +72,35 @@ const itemListSchema = {
 >
   <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
-  <header>
-    <a href="/" aria-label="John Rod Dondoyano — Home" class="mt-0 block h-fit w-fit">
+  <header class="w-full bg-black shadow-[0px_12px_0px_#00000011] dark:bg-white">
+    <div class="mx-auto max-w-2xl space-y-6 px-4 py-16 sm:py-24">
       <img
-        class="max-h-32 w-fit rounded-md dark:hidden"
-        src="JRLOGO-transparent-black.webp"
+        class="block w-full dark:hidden"
+        src="JRLOGO-white.gif"
         alt="John Rod Dondoyano — Musician, and Web Developer"
         loading="eager"
-        width="128"
-        height="128"
       />
       <img
-        class="hidden max-h-32 w-fit rounded-md dark:block"
-        src="JRLOGO-transparent-white.webp"
+        class="hidden w-full dark:block"
+        src="JRLOGO-black.gif"
         alt="John Rod Dondoyano — Musician, and Web Developer"
         loading="eager"
-        width="128"
-        height="128"
       />
-    </a>
-    <h1>John Rod Dondoyano</h1>
-    <p class="prose-a:underline">
-      Expressing the syntax of music on <a
-        href="https://youtube.com/johnroddondoyano"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="John Rod Dondoyano on YouTube">YouTube</a
-      > and debugging the rhythm of <a href="/web-development">web development</a>. Sometimes
-      programming from the piano bench, and often approaching the piano keys like a codebase —
-      searching for the logic in every note.
-    </p>
+      <h1 class="text-background text-4xl font-bold">John Rod Dondoyano</h1>
+      <p class="text-muted-foreground">
+        Expressing the syntax of music on <a
+          href="https://youtube.com/johnroddondoyano"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="John Rod Dondoyano on YouTube">YouTube</a
+        > and debugging the rhythm of <a href="/web-development">web development</a>. Sometimes
+        programming from the piano bench, and often approaching the piano keys like a codebase —
+        searching for the logic in every note.
+      </p>
+    </div>
   </header>
   <section
-    class="flex flex-col divide-y rounded-3xl border shadow-lg [&>article]:px-4 [&>article]:pb-12 [&>article]:last:border-b-0"
+    class="[&>article>p]:text-muted-foreground mt-3 flex flex-col divide-y [&>article]:space-y-6 [&>article]:px-4 [&>article]:py-12 [&>article]:last:border-b-0 [&>article>h2]:text-2xl [&>article>h2]:font-bold"
     aria-label="Featured content and offerings"
   >
     <article>
@@ -119,7 +115,7 @@ const itemListSchema = {
         rel="noopener noreferrer"
         aria-label="Subscribe to John Rod Dondoyano on YouTube"
       >
-        <Button variant={'outline'}><FaYoutube />Subscribe!</Button>
+        <Button><FaYoutube />Subscribe!</Button>
       </a>
     </article>
     <article>
@@ -134,7 +130,7 @@ const itemListSchema = {
         rel="noopener noreferrer"
         aria-label="Buy piano sheet music by John Rod Dondoyano on MyMusicSheet"
       >
-        <Button variant={'outline'}><FaMusic />Buy Piano Sheets</Button>
+        <Button><FaMusic />Buy Piano Sheets</Button>
       </a>
     </article>
     <article>
@@ -149,7 +145,7 @@ const itemListSchema = {
         rel="noopener noreferrer"
         aria-label="Buy MIDI and MusicXML files by John Rod Dondoyano on Payhip"
       >
-        <Button variant={'outline'}><FaFile />Buy MIDI/MusicXML Files</Button>
+        <Button><FaFile />Buy MIDI/MusicXML Files</Button>
       </a>
     </article>
     <article>
@@ -165,7 +161,7 @@ const itemListSchema = {
           rel="noopener noreferrer"
           aria-label="Listen to John Rod Dondoyano on Apple Music"
         >
-          <Button variant={'outline'}><FaApple />Apple Music</Button>
+          <Button><FaApple />Apple Music</Button>
         </a>
         <a
           href="https://open.spotify.com/artist/2opN2BRNgnBJIO932Kyr3U"
@@ -173,7 +169,7 @@ const itemListSchema = {
           rel="noopener noreferrer"
           aria-label="Listen to John Rod Dondoyano on Spotify"
         >
-          <Button variant={'outline'}><FaSpotify />Spotify</Button>
+          <Button><FaSpotify />Spotify</Button>
         </a>
       </nav>
     </article>

@@ -50,9 +50,11 @@ export default function TalkForm() {
     toast.success('Submitted!');
   }
   return (
-    <div className="rounded-3xl border px-4 pb-12 shadow-lg">
-      <h2>Talk To Me</h2>
-      <p>Any inquiries? Send it to me by filling up the form below.</p>
+    <div className="mx-auto w-full max-w-2xl space-y-6 border-t px-4 py-12">
+      <h2 className="text-foreground text-2xl font-bold">Talk To Me</h2>
+      <p className="text-muted-foreground">
+        Any inquiries? Send it to me by filling up the form below.
+      </p>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(handleSubmitForm)} className="space-y-6">
           <FormField
@@ -110,7 +112,7 @@ export default function TalkForm() {
               </FormItem>
             )}
           />
-          <Button variant="outline" disabled={form.formState.isSubmitting}>
+          <Button disabled={form.formState.isSubmitting}>
             {form.formState.isSubmitting ? 'Sending...' : 'Send'}
             {form.formState.isSubmitting ? <Loader2 className="animate-spin" /> : <Send />}
           </Button>
