@@ -74,8 +74,8 @@ const projectListSchema = {
     </p>
   </header>
 
-  <section aria-label="Technical skills and tools">
-    <article class="rounded-lg border p-4">
+  <section class="rounded-3xl border px-4 pb-12 shadow-lg" aria-label="Technical skills and tools">
+    <article>
       <h2>Tech Stacks</h2>
       <ul
         class="prose-li:mb-0 prose-li:mt-0 mb-0 flex list-none flex-wrap gap-4 p-0 text-2xl"
@@ -83,7 +83,7 @@ const projectListSchema = {
       >
         {
           TECH_STACKS.map((stack, i) => (
-            <li class="dark:bg-input/30 flex items-center gap-2 rounded-md border p-4">
+            <li class="dark:bg-input/30 flex items-center gap-1 rounded-2xl border p-4">
               <stack.icon aria-hidden="true" />
               <p class="mt-0 mb-0 text-base">
                 <span>{stack.name}</span>
@@ -98,14 +98,14 @@ const projectListSchema = {
     </article>
   </section>
 
-  <section aria-label="Professional experiences">
-    <article class="rounded-lg border p-4">
+  <section class="rounded-3xl border px-4 pb-12 shadow-lg" aria-label="Professional experiences">
+    <article>
       <h2>Experiences</h2>
       <p>My experiences so far</p>
-      <div class="space-y-4">
+      <div class="flex flex-col divide-y rounded-2xl border">
         {
           EXPERIENCES.map((exp) => (
-            <section class="dark:bg-input/30 rounded-lg border p-4">
+            <section class="px-4 py-12">
               <div class="inline-flex items-center gap-4">
                 <img
                   src={exp.icon as string}
@@ -126,14 +126,14 @@ const projectListSchema = {
                 {exp.tech_stacks.map((stack, i) => (
                   <div class="inline-flex items-center gap-1">
                     <stack.icon aria-hidden="true" />
-                    <span class="mt-0 mb-0 text-base">{stack.name}</span>
-                    <span hidden={exp.tech_stacks.length === i + 1} class="text-base">
-                      ,
+                    <span class="mt-0 mb-0 text-base">
+                      {stack.name}
+                      {exp.tech_stacks.length === i + 1 ? null : ','}
                     </span>
                   </div>
                 ))}
               </div>
-              <div class="prose-a:underline flex flex-wrap items-end gap-4">
+              <div class="prose-a:underline flex flex-wrap items-end gap-2">
                 <p class="mb-0">links: </p>
                 {exp.links.map((link, i) => (
                   <a
@@ -141,11 +141,11 @@ const projectListSchema = {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Visit ${link.name} for ${exp.name}`}
-                    class="prose-p:mb-0 prose-p:mt-0"
+                    class="prose-p:mb-0 prose-p:mt-0 inline-flex"
                   >
-                    <span>{link.name}</span>
-                    <span hidden={exp.links.length === i + 1} class="-ml-2 text-base">
-                      ,
+                    <span>
+                      {link.name}
+                      {exp.links.length === i + 1 ? null : ','}
                     </span>
                   </a>
                 ))}
@@ -157,14 +157,14 @@ const projectListSchema = {
     </article>
   </section>
 
-  <section aria-label="Personal projects">
-    <article class="rounded-lg border p-4">
+  <section class="rounded-3xl border px-4 pb-12 shadow-lg" aria-label="Personal projects">
+    <article>
       <h2>Other Projects</h2>
       <p>Just for fun</p>
-      <div class="space-y-4">
+      <div class="flex flex-col divide-y rounded-2xl border">
         {
           OWN_PROJECTS.map((project) => (
-            <section class="dark:bg-input/30 rounded-md border p-4">
+            <section class="px-4 py-12">
               <div class="inline-flex items-center gap-4">
                 <img
                   src={project.icon as string}
@@ -182,14 +182,14 @@ const projectListSchema = {
                 {project.tech_stacks.map((stack, i) => (
                   <div class="inline-flex items-center gap-1">
                     <stack.icon aria-hidden="true" />
-                    <span class="mt-0 mb-0 text-base">{stack.name}</span>
-                    <span hidden={project.tech_stacks.length === i + 1} class="text-base">
-                      ,
+                    <span class="mt-0 mb-0 text-base">
+                      {stack.name}
+                      {project.tech_stacks.length === i + 1 ? null : ','}
                     </span>
                   </div>
                 ))}
               </div>
-              <div class="prose-a:underline flex flex-wrap items-end gap-4">
+              <div class="prose-a:underline flex flex-wrap items-end gap-2">
                 <p class="mb-0">links: </p>
                 {project.links.map((link, i) => (
                   <a
@@ -197,11 +197,11 @@ const projectListSchema = {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Visit ${link.name} for ${project.name}`}
-                    class="prose-p:mb-0 prose-p:mt-0"
+                    class="prose-p:mb-0 prose-p:mt-0 inline-flex"
                   >
-                    <span>{link.name}</span>
-                    <span hidden={project.links.length === i + 1} class="-ml-2 text-base">
-                      ,
+                    <span>
+                      {link.name}
+                      {project.links.length === i + 1 ? null : ','}
                     </span>
                   </a>
                 ))}

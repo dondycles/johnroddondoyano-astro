@@ -89,17 +89,17 @@ const structuredData = {
   </head>
   <body class="font-google-sans-flex text-foreground bg-background antialiased">
     <main
-      class="prose prose-neutral prose-a:no-underline dark:prose-invert prose-a:text-[var(--tw-prose-body)] mx-auto flex max-w-4xl flex-col gap-y-8 px-4 pt-12 pb-8"
+      class="prose prose-neutral prose-a:no-underline dark:prose-invert prose-a:text-[var(--tw-prose-body)] mx-auto flex max-w-4xl flex-col gap-y-10 px-4 pt-12 pb-8"
     >
       <slot />
       <FormWithRecaptcha client:load />
       <footer class="space-y-6">
-        <div class="rounded-lg border p-4">
+        <div>
           <h2>Let's Connect!</h2>
           <p>You can find me on...</p>
           <nav
             aria-label="Social media links"
-            class="inline-flex h-fit w-full flex-wrap items-center gap-4 text-xl"
+            class="inline-flex h-fit w-full flex-wrap items-center gap-4 text-xl drop-shadow"
           >
             {
               SOCIALS.map((social) => (

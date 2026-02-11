@@ -72,20 +72,25 @@ const itemListSchema = {
 >
   <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
-
   <header>
-    <figure class="mt-0 h-fit w-fit">
-      <a href="/" aria-label="John Rod Dondoyano — Home">
-        <img
-          class="mt-0 max-h-24 w-fit rounded-md border"
-          src="JRLOGO.png"
-          alt="John Rod Dondoyano — Musician, and Web Developer"
-          width="96"
-          height="96"
-          loading="eager"
-        />
-      </a>
-    </figure>
+    <a href="/" aria-label="John Rod Dondoyano — Home" class="mt-0 block h-fit w-fit">
+      <img
+        class="max-h-32 w-fit rounded-md dark:hidden"
+        src="JRLOGO-transparent-black.webp"
+        alt="John Rod Dondoyano — Musician, and Web Developer"
+        loading="eager"
+        width="128"
+        height="128"
+      />
+      <img
+        class="hidden max-h-32 w-fit rounded-md dark:block"
+        src="JRLOGO-transparent-white.webp"
+        alt="John Rod Dondoyano — Musician, and Web Developer"
+        loading="eager"
+        width="128"
+        height="128"
+      />
+    </a>
     <h1>John Rod Dondoyano</h1>
     <p class="prose-a:underline">
       Expressing the syntax of music on <a
@@ -98,9 +103,11 @@ const itemListSchema = {
       searching for the logic in every note.
     </p>
   </header>
-
-  <section class="space-y-8" aria-label="Featured content and offerings">
-    <article class="rounded-lg border p-4">
+  <section
+    class="flex flex-col divide-y rounded-3xl border shadow-lg [&>article]:px-4 [&>article]:pb-12 [&>article]:last:border-b-0"
+    aria-label="Featured content and offerings"
+  >
+    <article>
       <h2>300k Subscribers on YouTube</h2>
       <p>
         Join a growing community of music lovers and piano enthusiasts who enjoy heartfelt
@@ -112,10 +119,10 @@ const itemListSchema = {
         rel="noopener noreferrer"
         aria-label="Subscribe to John Rod Dondoyano on YouTube"
       >
-        <Button variant={'secondary'}><FaYoutube />Subscribe!</Button>
+        <Button variant={'outline'}><FaYoutube />Subscribe!</Button>
       </a>
     </article>
-    <article class="rounded-lg border p-4">
+    <article>
       <h2>300+ Piano Sheets</h2>
       <p>
         Explore an extensive collection of piano sheet music—perfect for all skill levels. Every
@@ -127,10 +134,10 @@ const itemListSchema = {
         rel="noopener noreferrer"
         aria-label="Buy piano sheet music by John Rod Dondoyano on MyMusicSheet"
       >
-        <Button variant={'secondary'}><FaMusic />Buy Piano Sheets</Button>
+        <Button variant={'outline'}><FaMusic />Buy Piano Sheets</Button>
       </a>
     </article>
-    <article class="rounded-lg border p-4">
+    <article>
       <h2>250+ MIDI/MXL Files</h2>
       <p>
         Take your piano practice to the next level with downloadable MIDI and MusicXML files
@@ -142,10 +149,10 @@ const itemListSchema = {
         rel="noopener noreferrer"
         aria-label="Buy MIDI and MusicXML files by John Rod Dondoyano on Payhip"
       >
-        <Button variant={'secondary'}><FaFile />Buy MIDI/MusicXML Files</Button>
+        <Button variant={'outline'}><FaFile />Buy MIDI/MusicXML Files</Button>
       </a>
     </article>
-    <article class="rounded-lg border p-4">
+    <article>
       <h2>10k+ Listeners on Music Stores</h2>
       <p>
         Stream my original compositions and piano covers on popular music platforms. Whether you're
@@ -158,7 +165,7 @@ const itemListSchema = {
           rel="noopener noreferrer"
           aria-label="Listen to John Rod Dondoyano on Apple Music"
         >
-          <Button variant={'secondary'}><FaApple />Apple Music</Button>
+          <Button variant={'outline'}><FaApple />Apple Music</Button>
         </a>
         <a
           href="https://open.spotify.com/artist/2opN2BRNgnBJIO932Kyr3U"
@@ -166,7 +173,7 @@ const itemListSchema = {
           rel="noopener noreferrer"
           aria-label="Listen to John Rod Dondoyano on Spotify"
         >
-          <Button variant={'secondary'}><FaSpotify />Spotify</Button>
+          <Button variant={'outline'}><FaSpotify />Spotify</Button>
         </a>
       </nav>
     </article>
