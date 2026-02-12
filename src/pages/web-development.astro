@@ -81,7 +81,7 @@ const projectListSchema = {
       <ul class="mb-0 flex list-none flex-wrap gap-4 p-0 text-2xl" role="list">
         {
           TECH_STACKS.map((stack, i) => (
-            <li class="dark:bg-input/30 flex items-center gap-1 border p-4 shadow-[6px_6px_0px_#00000011]">
+            <li class="dark:bg-input/30 hover active flex items-center gap-1 border p-4 shadow">
               <stack.icon aria-hidden="true" />
               <p class="text-base">
                 <span>{stack.name}</span>
@@ -102,7 +102,7 @@ const projectListSchema = {
       <div class="flex flex-col gap-4">
         {
           EXPERIENCES.map((exp) => (
-            <section class="space-y-6 border px-4 py-12 shadow-[6px_6px_0px_#00000011]">
+            <section class="hover active space-y-6 border px-4 py-12 shadow">
               <div class="inline-flex items-center gap-4">
                 <img
                   src={exp.icon as string}
@@ -160,7 +160,7 @@ const projectListSchema = {
       <div class="flex flex-col gap-4">
         {
           OWN_PROJECTS.map((project) => (
-            <section class="space-y-6 border px-4 py-12 shadow-[6px_6px_0px_#00000011]">
+            <section class="hover active space-y-6 border px-4 py-12 shadow">
               <div class="inline-flex items-center gap-4">
                 <img
                   src={project.icon as string}

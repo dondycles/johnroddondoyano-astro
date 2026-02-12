@@ -12,6 +12,7 @@ import { SEO } from 'astro-seo';
 import { SOCIALS } from '@/lib/socials';
 import { Toaster } from '@/components/ui/sonner';
 import FormWithRecaptcha from '@/components/FormWithRecaptcha';
+import { Button } from '@/components/ui/button';
 const { seo } = Astro.props;
 const url = Astro.url;
 const canonicalURL = new URL(url.pathname, url);
@@ -98,17 +99,19 @@ const structuredData = {
         <p class="text-muted-foreground">You can find me on...</p>
         <nav
           aria-label="Social media links"
-          class="inline-flex h-fit w-full flex-wrap items-center gap-4 text-xl drop-shadow"
+          class="inline-flex h-fit w-full flex-wrap items-center gap-4 text-xl"
         >
           {
             SOCIALS.map((social) => (
               <a href={social.link} target="_blank" rel="noopener noreferrer">
-                <social.icon aria-hidden="true" /> <p class="sr-only text-base">{social.link}</p>
+                <Button variant="outline" size="icon">
+                  <social.icon aria-hidden="true" /> <p class="sr-only text-base">{social.link}</p>
+                </Button>
               </a>
             ))
           }
         </nav>
-        <div class="flex flex-wrap items-end-safe gap-2">
+        <div class="mt-6 flex flex-wrap items-end-safe gap-2">
           <ThemeToggle client:load />
           <span class="text-muted-foreground flex-1 text-right">
             John Rod Dondoyano | {new Date().getFullYear()}</span

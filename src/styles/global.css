@@ -123,3 +123,19 @@
 .grecaptcha-badge {
   @apply invisible;
 }
+
+.shadow {
+  @apply shadow-[6px_6px_0px_#00000011] transition-all duration-100 ease-in-out;
+}
+
+.hover {
+  @apply hover:-translate-y-px hover:shadow-[8px_8px_0px_#00000011];
+}
+
+.focus {
+  @apply focus:translate-y-px focus:shadow-[5px_5px_0px_#00000011];
+}
+
+.active {
+  @apply active:translate-y-px active:shadow-[5px_5px_0px_#00000011];
+}
