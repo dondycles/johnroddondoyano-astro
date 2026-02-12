@@ -2,7 +2,9 @@
 import { Button } from '@/components/ui/button';
 import RootLayout from '@/layouts/RootLayout.astro';
 import { ChevronDown } from 'lucide-react';
+import { FaAmazon, FaDeezer, FaFolderOpen } from 'react-icons/fa';
 import { FaApple, FaFile, FaMusic, FaSpotify, FaYoutube } from 'react-icons/fa6';
+import { TbBrandTidal } from 'react-icons/tb';
 
 const personSchema = {
   '@context': 'https://schema.org',
@@ -99,8 +101,7 @@ const itemListSchema = {
           rel="noopener noreferrer"
           aria-label="John Rod Dondoyano on YouTube">YouTube</a
         > and debugging the rhythm of <a href="/web-development">web development</a>. Sometimes
-        programming from the piano bench, and often approaching the piano keys like a codebase —
-        searching for the logic in every note.
+        programming from the piano bench, and often creating music from the codebase.
       </p>
       <ChevronDown client:load className="text-muted-foreground mx-auto animate-bounce" />
     </div>
@@ -110,10 +111,10 @@ const itemListSchema = {
     aria-label="Featured content and offerings"
   >
     <article>
-      <h2>300k Subscribers on YouTube</h2>
+      <h2>316k+ Subscribers on YouTube</h2>
       <p>
-        Join a growing community of music lovers and piano enthusiasts who enjoy heartfelt
-        renditions, tutorials, and creative arrangements from my YouTube channel.
+        Join my growing family of music lovers and piano enthusiasts who enjoy heartfelt renditions,
+        tutorials, and creative arrangements.
       </p>
       <a
         href="https://youtube.com/johnroddondoyano"
@@ -125,7 +126,7 @@ const itemListSchema = {
       </a>
     </article>
     <article>
-      <h2>300+ Piano Sheets</h2>
+      <h2>360+ Piano Sheets</h2>
       <p>
         Explore an extensive collection of piano sheet music—perfect for all skill levels. Every
         piece is transcribed with care and accuracy.
@@ -140,10 +141,10 @@ const itemListSchema = {
       </a>
     </article>
     <article>
-      <h2>250+ MIDI/MXL Files</h2>
+      <h2>300+ MIDI/MusicXML Files</h2>
       <p>
         Take your piano practice to the next level with downloadable MIDI and MusicXML files
-        compatible with Synthesia and notation software — great for visual learners.
+        compatible with Synthesia and notation software—great for visual learners.
       </p>
       <a
         href="https://payhip.com/johnroddondoyano"
@@ -155,12 +156,20 @@ const itemListSchema = {
       </a>
     </article>
     <article>
-      <h2>10k+ Listeners on Music Stores</h2>
+      <h2>14k+ Listeners on Music Stores</h2>
       <p>
-        Stream my original compositions and piano covers on popular music platforms. Whether you're
-        working, studying, or relaxing—let the music inspire you.
+        Stream my piano covers on popular music platforms. Whether you're working, studying, or
+        relaxing—let the music inspire you.
       </p>
       <nav aria-label="Music streaming platforms" class="inline-flex flex-wrap gap-2">
+        <a
+          href="https://open.spotify.com/artist/2opN2BRNgnBJIO932Kyr3U"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Listen to John Rod Dondoyano on Spotify"
+        >
+          <Button><FaSpotify />Spotify</Button>
+        </a>
         <a
           href="https://music.apple.com/us/artist/john-rod-dondoyano/1716913960"
           target="_blank"
@@ -170,14 +179,43 @@ const itemListSchema = {
           <Button><FaApple />Apple Music</Button>
         </a>
         <a
-          href="https://open.spotify.com/artist/2opN2BRNgnBJIO932Kyr3U"
+          href="https://music.youtube.com/channel/UCKk0kHA3fmAkxoaqYj_2RSw"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Listen to John Rod Dondoyano on Spotify"
+          aria-label="Listen to John Rod Dondoyano on YouTube Music"
         >
-          <Button><FaSpotify />Spotify</Button>
+          <Button><FaYoutube />YouTube Music</Button>
+        </a>
+        <a
+          href="https://music.amazon.com/artists/B088P7883M/john-rod-dondoyano"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Listen to John Rod Dondoyano on Amazon Music"
+        >
+          <Button><FaAmazon />Amazon Music</Button>
+        </a>
+        <a
+          href="https://www.deezer.com/en/artist/94847662"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Listen to John Rod Dondoyano on Deezer"
+        >
+          <Button><FaDeezer />Deezer</Button>
+        </a>
+        <a
+          href="https://tidal.com/artist/19629668"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Listen to John Rod Dondoyano on Tidal"
+        >
+          <Button><TbBrandTidal />Tidal</Button>
         </a>
       </nav>
+    </article>
+    <article>
+      <h2>A Hobby of Building</h2>
+      <p>I also build web apps for fun and for a purpose.</p>
+      <Button><FaFolderOpen /> View Projects </Button>
     </article>
   </section>
 </RootLayout>
