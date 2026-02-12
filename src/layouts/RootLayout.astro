@@ -5,14 +5,14 @@ interface Props {
     description?: string;
   };
 }
-import { ThemeToggle } from '@/components/ThemeToggle';
+import FormWithRecaptcha from '@/components/FormWithRecaptcha';
+import { Toaster } from '@/components/ui/sonner';
+import { MUSIC_STORES } from '@/lib/music-stores';
+import { SOCIALS } from '@/lib/socials';
 import '@/styles/global.css';
 import '@fontsource/google-sans-flex';
 import { SEO } from 'astro-seo';
-import { SOCIALS } from '@/lib/socials';
-import { Toaster } from '@/components/ui/sonner';
-import FormWithRecaptcha from '@/components/FormWithRecaptcha';
-import { Button } from '@/components/ui/button';
+
 const { seo } = Astro.props;
 const url = Astro.url;
 const canonicalURL = new URL(url.pathname, url);
@@ -21,19 +21,70 @@ const webSiteSchema = new URL('/#/schema/WebSite', Astro.url);
 
 const DEFAULT_TITLE = 'John Rod Dondoyano';
 const DEFAULT_DESCRIPTION =
-  'A growing pianist on YouTube and an aspiring professional, driven by a dual passion for music and web development, harboring ambitions for a distinguished career in both fields.';
+  'Pianist with 316k+ YouTube subscribers and web developer. Explore 360+ piano sheets, MIDI files, and stream piano covers on Spotify, Apple Music, and more.';
+
+const KEYWORDS = [
+  'John Rod Dondoyano',
+  'musician',
+  'web developer',
+  'pianist',
+  'piano covers',
+  'piano sheet music',
+  'MIDI files',
+  'MusicXML',
+  'YouTube pianist',
+  'music streaming',
+  'Spotify artist',
+  'piano tutorials',
+  'piano sheet music',
+  'MIDI files',
+  'MusicXML',
+  'YouTube pianist',
+  'web developer',
+  'music streaming',
+  'Spotify artist',
+  'piano tutorials',
+];
 
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   '@id': webSiteSchema,
-  name: seo?.title ?? DEFAULT_TITLE,
+  name: DEFAULT_TITLE,
   url: siteURL,
-  description: seo?.description ?? DEFAULT_DESCRIPTION,
+  description: DEFAULT_DESCRIPTION,
+  author: {
+    '@type': 'Person',
+    name: 'John Rod Dondoyano',
+    url: 'https://johnroddondoyano.com',
+    sameAs: [
+      'https://youtube.com/johnroddondoyano',
+      'https://tiktok.com/@dondycles',
+      'https://open.spotify.com/artist/2opN2BRNgnBJIO932Kyr3U',
+      'https://music.apple.com/us/artist/john-rod-dondoyano/1716913960',
+      'https://github.com/dondycles',
+      'https://instagram.com/dondycles',
+      'https://x.com/dondycles',
+      'https://facebook.com/dondycles',
+    ],
+  },
+  publisher: {
+    '@type': 'Person',
+    name: 'John Rod Dondoyano',
+  },
+  inLanguage: 'en-US',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: 'https://johnroddondoyano.com/?s={search_term_string}',
+    },
+    'query-input': 'required name=search_term_string',
+  },
 };
 ---
 
-<script is:inline>
+<!-- <script is:inline>
   const getThemePreference = () => {
     if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
       return localStorage.getItem('theme');
@@ -50,22 +101,39 @@ const structuredData = {
     });
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
   }
-</script>
+</script> --><!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO Meta Tags -->
+    <meta name="author" content="John Rod Dondoyano" />
+    <meta name="keywords" content={KEYWORDS.join(', ')} />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta name="theme-color" content="#000000" />
+
+    <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
     <link rel="manifest" href="/site.webmanifest" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Canonical and Sitemap -->
     <link rel="canonical" href={canonicalURL} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Structured Data -->
     <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
+    <!-- SEO Component -->
     <SEO
       title={seo?.title ? `${seo?.title}${DEFAULT_TITLE}` : DEFAULT_TITLE}
-      titleDefault="John Rod Dondoyano"
+      titleDefault={DEFAULT_TITLE}
       description={seo?.description ?? DEFAULT_DESCRIPTION}
       openGraph={{
         basic: {
@@ -77,6 +145,10 @@ const structuredData = {
         optional: {
           description: seo?.description ?? DEFAULT_DESCRIPTION,
           siteName: DEFAULT_TITLE,
+          locale: 'en_US',
+        },
+        image: {
+          alt: 'John Rod Dondoyano - Musician and Web Developer',
         },
       }}
       twitter={{
@@ -84,38 +156,80 @@ const structuredData = {
         description: seo?.description ?? DEFAULT_DESCRIPTION,
         card: 'summary_large_image',
         image: `${url.origin}/summary-new.png`,
+        imageAlt: 'John Rod Dondoyano - Musician and Web Developer',
         creator: '@dondycles',
+        site: '@dondycles',
+      }}
+      extend={{
+        meta: [
+          { name: 'twitter:label1', content: 'YouTube Subscribers' },
+          { name: 'twitter:data1', content: '316k+' },
+          { name: 'twitter:label2', content: 'Piano Sheets' },
+          { name: 'twitter:data2', content: '360+' },
+          { name: 'twitter:label3', content: 'MIDI/MusicXML Files' },
+          { name: 'twitter:data3', content: '120+' },
+          { name: 'twitter:label4', content: 'Listeners on Music Streaming Platforms' },
+          { name: 'twitter:data4', content: '14k+' },
+        ],
       }}
     />
   </head>
   <body class="font-google-sans-flex text-foreground bg-background antialiased [&_a]:underline">
     <main
-      class="flex w-full flex-col pb-12 shadow-[0px_12px_0px_#00000011] [&>*:not(header)]:mx-auto [&>*:not(header)]:max-w-2xl"
+      class="flex w-full flex-col shadow-[0px_12px_0px_#00000011] [&>*:not(header):not(footer)]:mx-auto [&>*:not(header):not(footer)]:max-w-2xl"
     >
       <slot />
       <FormWithRecaptcha client:load />
-      <footer class="mx-auto w-full max-w-2xl space-y-6 border-t px-4 py-12">
-        <h2 class="text-2xl font-bold">Let's Connect!</h2>
-        <p class="text-muted-foreground">You can find me on...</p>
-        <nav
-          aria-label="Social media links"
-          class="inline-flex h-fit w-full flex-wrap items-center gap-4 text-xl"
-        >
-          {
-            SOCIALS.map((social) => (
-              <a href={social.link} target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" size="icon">
-                  <social.icon aria-hidden="true" /> <p class="sr-only text-base">{social.link}</p>
-                </Button>
-              </a>
-            ))
-          }
-        </nav>
-        <div class="mt-6 flex flex-wrap items-end-safe gap-2">
-          <ThemeToggle client:load />
-          <span class="text-muted-foreground flex-1 text-right">
-            John Rod Dondoyano | {new Date().getFullYear()}</span
+      <footer class="bg-primary text-background w-full" role="contentinfo">
+        <div class="mx-auto w-full max-w-2xl space-y-12 px-4 py-24">
+          <h2 class="text-2xl font-bold">Let's Connect!</h2>
+          <div
+            class="mx-auto flex flex-wrap justify-between gap-24 [&>nav>a]:no-underline [&>nav>a]:hover:underline"
           >
+            <nav class="flex flex-col gap-1 text-left" aria-label="Social media links">
+              <h3 class="text-muted-foreground mb-6 text-base font-normal">Socials</h3>
+              {
+                SOCIALS.map((social) => (
+                  <a href={social.link} target="_blank" rel="noopener noreferrer me">
+                    <span>{social.name}</span>
+                  </a>
+                ))
+              }
+            </nav>
+            <nav class="flex flex-col gap-1 text-left" aria-label="Music streaming platforms">
+              <h3 class="text-muted-foreground mb-6 text-base font-normal">Music Stores</h3>
+              {
+                MUSIC_STORES.map((musicStore) => (
+                  <a href={musicStore.url} target="_blank" rel="noopener noreferrer">
+                    <span>{musicStore.name}</span>
+                  </a>
+                ))
+              }
+            </nav>
+            <nav
+              class="flex flex-col gap-1 text-left"
+              aria-label="Purchase sheet music and MIDI files"
+            >
+              <h3 class="text-muted-foreground mb-6 text-base font-normal">Purchase</h3>
+              <a
+                href="https://mymusicsheet.com/johnroddondoyano"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>Piano Sheets</span>
+              </a>
+              <a
+                href="https://payhip.com/johnroddondoyano"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>MIDI/MusicXML Files</span>
+              </a>
+            </nav>
+          </div>
+          <p class="text-muted-foreground mt-24">
+            © {new Date().getFullYear()} John Rod Dondoyano. All rights reserved.
+          </p>
         </div>
       </footer>
     </main>

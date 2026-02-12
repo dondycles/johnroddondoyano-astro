@@ -1,25 +1,29 @@
 ---
 import { Button } from '@/components/ui/button';
 import RootLayout from '@/layouts/RootLayout.astro';
+import { MUSIC_STORES } from '@/lib/music-stores';
 import { ChevronDown } from 'lucide-react';
-import { FaAmazon, FaDeezer, FaFolderOpen } from 'react-icons/fa';
-import { FaApple, FaFile, FaMusic, FaSpotify, FaYoutube } from 'react-icons/fa6';
-import { TbBrandTidal } from 'react-icons/tb';
+import { FaFolderOpen } from 'react-icons/fa';
+import { FaFile, FaMusic, FaSpotify, FaYoutube } from 'react-icons/fa6';
 
 const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'John Rod Dondoyano',
   url: 'https://johnroddondoyano.com',
-  image: 'https://johnroddondoyano.com/JRLOGO.png',
+  image: 'https://johnroddondoyano.com/JRLOGO.webp',
   description:
-    'Musician and web developer. Expressing the syntax of music on YouTube and debugging the rhythm of web development.',
+    'Musician and web developer. Expressing the syntax of music on YouTube and debugging the rhythm of web development. Sometimes programming from the piano bench, and often creating music from the codebase.',
   jobTitle: 'Musician & Web Developer',
   sameAs: [
     'https://youtube.com/johnroddondoyano',
     'https://tiktok.com/@dondycles',
     'https://open.spotify.com/artist/2opN2BRNgnBJIO932Kyr3U',
     'https://music.apple.com/us/artist/john-rod-dondoyano/1716913960',
+    'https://music.youtube.com/channel/UCKk0kHA3fmAkxoaqYj_2RSw',
+    'https://music.amazon.com/artists/B088P7883M/john-rod-dondoyano',
+    'https://www.deezer.com/en/artist/94847662',
+    'https://tidal.com/artist/19629668',
     'https://facebook.com/dondycles',
     'https://instagram.com/dondycles',
     'https://x.com/dondycles',
@@ -35,19 +39,19 @@ const itemListSchema = {
     {
       '@type': 'ListItem',
       position: 1,
-      name: '300k Subscribers on YouTube',
+      name: '316k+ Subscribers on YouTube',
       url: 'https://youtube.com/johnroddondoyano',
     },
     {
       '@type': 'ListItem',
       position: 2,
-      name: '300+ Piano Sheets',
+      name: '360+ Piano Sheets',
       url: 'https://mymusicsheet.com/johnroddondoyano',
     },
     {
       '@type': 'ListItem',
       position: 3,
-      name: '250+ MIDI/MXL Files',
+      name: '300+ MIDI/MusicXML Files',
       url: 'https://payhip.com/johnroddondoyano',
     },
     {
@@ -62,8 +66,92 @@ const itemListSchema = {
       name: 'Stream on Spotify',
       url: 'https://open.spotify.com/artist/2opN2BRNgnBJIO932Kyr3U',
     },
+    {
+      '@type': 'ListItem',
+      position: 6,
+      name: 'Stream on YouTube Music',
+      url: 'https://music.youtube.com/channel/UCKk0kHA3fmAkxoaqYj_2RSw',
+    },
+    {
+      '@type': 'ListItem',
+      position: 7,
+      name: 'Stream on Amazon Music',
+      url: 'https://music.amazon.com/artists/B088P7883M/john-rod-dondoyano',
+    },
+    {
+      '@type': 'ListItem',
+      position: 8,
+      name: 'Stream on Deezer',
+      url: 'https://www.deezer.com/en/artist/94847662',
+    },
+    {
+      '@type': 'ListItem',
+      position: 9,
+      name: 'Stream on Tidal',
+      url: 'https://tidal.com/artist/19629668',
+    },
   ],
 };
+
+const articles = [
+  {
+    title: '316k+ Subscribers on YouTube',
+    description:
+      'Join my growing family of music lovers and piano enthusiasts who enjoy heartfelt renditions, tutorials, and creative arrangements.',
+    url: 'https://youtube.com/johnroddondoyano',
+    icon: FaYoutube,
+  },
+  {
+    title: '360+ Piano Sheets',
+    description:
+      'Find the perfect sheet music for your piano journey. From beginner-friendly arrangements to challenging pieces, I have something for every pianist.',
+    url: 'https://mymusicsheet.com/johnroddondoyano',
+    icon: FaFile,
+  },
+  {
+    title: '300+ MIDI/MusicXML Files',
+    description:
+      'Get access to high-quality MIDI and MusicXML files for your own arrangements and productions.',
+    url: 'https://payhip.com/johnroddondoyano',
+    icon: FaMusic,
+  },
+  {
+    title: 'Stream on Apple Music',
+    description: 'Listen to my music on Apple Music and enjoy high-quality audio streaming.',
+    url: 'https://music.apple.com/us/artist/john-rod-dondoyano/1716913960',
+    icon: FaMusic,
+  },
+  {
+    title: 'Stream on Spotify',
+    description: 'Stream my music on Spotify and enjoy high-quality audio streaming.',
+    url: 'https://open.spotify.com/artist/2opN2BRNgnBJIO932Kyr3U',
+    icon: FaSpotify,
+  },
+  {
+    title: 'Stream on YouTube Music',
+    description: 'Stream my music on YouTube Music and enjoy high-quality audio streaming.',
+    url: 'https://music.youtube.com/channel/UCKk0kHA3fmAkxoaqYj_2RSw',
+    icon: FaYoutube,
+  },
+  {
+    title: 'Stream on Amazon Music',
+    description: 'Stream my music on Amazon Music and enjoy high-quality audio streaming.',
+    url: 'https://music.amazon.com/artists/B088P7883M/john-rod-dondoyano',
+    icon: FaMusic,
+  },
+  {
+    title: 'Stream on Deezer',
+    description: 'Stream my music on Deezer and enjoy high-quality audio streaming.',
+    url: 'https://www.deezer.com/en/artist/94847662',
+    icon: FaMusic,
+  },
+  {
+    title: 'Stream on Tidal',
+    description: 'Stream my music on Tidal and enjoy high-quality audio streaming.',
+    url: 'https://tidal.com/artist/19629668',
+    icon: FaMusic,
+  },
+];
 ---
 
 <RootLayout
@@ -76,7 +164,7 @@ const itemListSchema = {
   <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
   <header
-    class="group/header relative flex min-h-128 w-full items-end overflow-hidden bg-black shadow-[0px_12px_0px_#00000011] dark:bg-white"
+    class="group/header bg-primary relative flex min-h-128 w-full items-end overflow-hidden shadow-[0px_12px_0px_#00000011]"
   >
     <img
       class="max-w-auto blur-0 pointer-events-none absolute top-0 left-1/2 z-0 block h-full -translate-x-1/2 object-cover opacity-100 transition-all duration-300 ease-in-out group-hover/header:opacity-50 group-hover/header:blur-xs dark:hidden"
@@ -156,66 +244,35 @@ const itemListSchema = {
       </a>
     </article>
     <article>
-      <h2>14k+ Listeners on Music Stores</h2>
+      <h2>14k+ Listeners on Music Streaming Platforms</h2>
       <p>
         Stream my piano covers on popular music platforms. Whether you're working, studying, or
         relaxing—let the music inspire you.
       </p>
       <nav aria-label="Music streaming platforms" class="inline-flex flex-wrap gap-2">
-        <a
-          href="https://open.spotify.com/artist/2opN2BRNgnBJIO932Kyr3U"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Listen to John Rod Dondoyano on Spotify"
-        >
-          <Button><FaSpotify />Spotify</Button>
-        </a>
-        <a
-          href="https://music.apple.com/us/artist/john-rod-dondoyano/1716913960"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Listen to John Rod Dondoyano on Apple Music"
-        >
-          <Button><FaApple />Apple Music</Button>
-        </a>
-        <a
-          href="https://music.youtube.com/channel/UCKk0kHA3fmAkxoaqYj_2RSw"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Listen to John Rod Dondoyano on YouTube Music"
-        >
-          <Button><FaYoutube />YouTube Music</Button>
-        </a>
-        <a
-          href="https://music.amazon.com/artists/B088P7883M/john-rod-dondoyano"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Listen to John Rod Dondoyano on Amazon Music"
-        >
-          <Button><FaAmazon />Amazon Music</Button>
-        </a>
-        <a
-          href="https://www.deezer.com/en/artist/94847662"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Listen to John Rod Dondoyano on Deezer"
-        >
-          <Button><FaDeezer />Deezer</Button>
-        </a>
-        <a
-          href="https://tidal.com/artist/19629668"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Listen to John Rod Dondoyano on Tidal"
-        >
-          <Button><TbBrandTidal />Tidal</Button>
-        </a>
+        {
+          MUSIC_STORES.map((store) => (
+            <a
+              href={store.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Listen to ${store.name} on ${store.name}`}
+            >
+              <Button>
+                <FaSpotify />
+                {store.name}
+              </Button>
+            </a>
+          ))
+        }
       </nav>
     </article>
     <article>
       <h2>A Hobby of Building</h2>
       <p>I also build web apps for fun and for a purpose.</p>
-      <Button><FaFolderOpen /> View Projects </Button>
+      <a href="/web-development" aria-label="View my web development projects">
+        <Button><FaFolderOpen /> View Projects </Button>
+      </a>
     </article>
   </section>
 </RootLayout>

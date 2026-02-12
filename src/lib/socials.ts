@@ -1,45 +1,41 @@
 import {
-  FaApple,
   FaFacebookF,
   FaGithub,
   FaInstagram,
-  FaSpotify,
   FaTiktok,
   FaXTwitter,
   FaYoutube,
 } from 'react-icons/fa6';
 export const SOCIALS = [
   {
+    name: 'Youtube',
     link: 'https://youtube.com/johnroddondoyano',
     icon: FaYoutube,
   },
   {
+    name: 'Tiktok',
     link: 'https://tiktok.com/@dondycles',
     icon: FaTiktok,
   },
+
   {
-    link: 'https://open.spotify.com/artist/2opN2BRNgnBJIO932Kyr3U',
-    icon: FaSpotify,
-  },
-  {
-    link: 'https://music.apple.com/us/artist/john-rod-dondoyano/1716913960',
-    icon: FaApple,
-  },
-  {
+    name: 'Facebook',
     link: 'https://facebook.com/dondycles',
     icon: FaFacebookF,
   },
-
   {
+    name: 'Instagram',
     link: 'https://instagram.com/dondycles',
     icon: FaInstagram,
   },
   {
+    name: 'X',
     link: 'https://x.com/dondycles',
     icon: FaXTwitter,
   },
 
   {
+    name: 'Github',
     link: 'https://github.com/dondycles',
     icon: FaGithub,
   },
