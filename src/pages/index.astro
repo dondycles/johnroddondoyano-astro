@@ -7,7 +7,6 @@ import { SOCIALS } from '@/lib/socials';
 import { Image } from 'astro:assets';
 import { ChevronDown } from 'lucide-react';
 import { FaExternalLinkAlt } from 'react-icons/fa';
-import { FaFile, FaMusic, FaSpotify, FaYoutube } from 'react-icons/fa6';
 
 const personSchema = {
   '@context': 'https://schema.org',
@@ -95,66 +94,6 @@ const itemListSchema = {
     },
   ],
 };
-
-const articles = [
-  {
-    title: '316k+ Subscribers on YouTube',
-    description:
-      'Join my growing family of music lovers and piano enthusiasts who enjoy heartfelt renditions, tutorials, and creative arrangements.',
-    url: 'https://youtube.com/johnroddondoyano',
-    icon: FaYoutube,
-  },
-  {
-    title: '360+ Piano Sheets',
-    description:
-      'Find the perfect sheet music for your piano journey. From beginner-friendly arrangements to challenging pieces, I have something for every pianist.',
-    url: 'https://mymusicsheet.com/johnroddondoyano',
-    icon: FaFile,
-  },
-  {
-    title: '300+ MIDI/MusicXML Files',
-    description:
-      'Get access to high-quality MIDI and MusicXML files for your own arrangements and productions.',
-    url: 'https://payhip.com/johnroddondoyano',
-    icon: FaMusic,
-  },
-  {
-    title: 'Stream on Apple Music',
-    description: 'Listen to my music on Apple Music and enjoy high-quality audio streaming.',
-    url: 'https://music.apple.com/us/artist/john-rod-dondoyano/1716913960',
-    icon: FaMusic,
-  },
-  {
-    title: 'Stream on Spotify',
-    description: 'Stream my music on Spotify and enjoy high-quality audio streaming.',
-    url: 'https://open.spotify.com/artist/2opN2BRNgnBJIO932Kyr3U',
-    icon: FaSpotify,
-  },
-  {
-    title: 'Stream on YouTube Music',
-    description: 'Stream my music on YouTube Music and enjoy high-quality audio streaming.',
-    url: 'https://music.youtube.com/channel/UCKk0kHA3fmAkxoaqYj_2RSw',
-    icon: FaYoutube,
-  },
-  {
-    title: 'Stream on Amazon Music',
-    description: 'Stream my music on Amazon Music and enjoy high-quality audio streaming.',
-    url: 'https://music.amazon.com/artists/B088P7883M/john-rod-dondoyano',
-    icon: FaMusic,
-  },
-  {
-    title: 'Stream on Deezer',
-    description: 'Stream my music on Deezer and enjoy high-quality audio streaming.',
-    url: 'https://www.deezer.com/en/artist/94847662',
-    icon: FaMusic,
-  },
-  {
-    title: 'Stream on Tidal',
-    description: 'Stream my music on Tidal and enjoy high-quality audio streaming.',
-    url: 'https://tidal.com/artist/19629668',
-    icon: FaMusic,
-  },
-];
 ---
 
 <RootLayout
@@ -286,7 +225,7 @@ const articles = [
                 href={store.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`Listen to ${store.name} on ${store.name}`}
+                aria-label={`Listen on ${store.name}`}
               >
                 <Button variant={'outline'} size={'icon'}>
                   <Image src={store.icon} alt={store.name} width={28} height={28} />
@@ -311,7 +250,7 @@ const articles = [
                 href={store.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`Listen to ${store.name} on ${store.name}`}
+                aria-label={`Follow ${store.name}`}
               >
                 <Button variant={'outline'} size={'icon'}>
                   <Image src={store.icon} alt={store.name} width={28} height={28} />
