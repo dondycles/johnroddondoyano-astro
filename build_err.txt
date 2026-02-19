@@ -1,0 +1,46 @@
+﻿[2m23:47:23[22m [34m[content][39m Syncing content
+[2m23:47:23[22m [34m[content][39m Synced content
+[2m23:47:23[22m [34m[types][39m Generated [2m37ms[22m
+[2m23:47:23[22m [34m[build][39m output: [34m"static"[39m
+[2m23:47:23[22m [34m[build][39m mode: [34m"server"[39m
+[2m23:47:23[22m [34m[build][39m directory: [34mD:\dev\johnroddondoyano-astro\dist\[39m
+[2m23:47:23[22m [34m[build][39m adapter: [32m@astrojs/vercel[39m
+[2m23:47:23[22m [34m[build][39m Collecting build info...
+[2m23:47:23[22m [34m[build][39m [32m✓ Completed in 64ms.[39m
+[2m23:47:23[22m [34m[build][39m Building server entrypoints...
+[2m23:47:24[22m [34m[vite][39m [32m✓ built in 904ms[39m
+[2m23:47:24[22m [34m[build][39m [32m✓ Completed in 931ms.[39m
+
+[42m[30m building client (vite) [39m[49m
+[2m23:47:24[22m [34m[vite][39m transforming...
+[2m23:47:25[22m [34m[vite][39m [32m✓[39m 1816 modules transformed.
+[2m23:47:26[22m [34m[vite][39m rendering chunks...
+[2m23:47:26[22m [34m[vite][39m computing gzip size...
+[2m23:47:26[22m [34m[vite][39m [2mdist/client/[22m[36m_astro/_astro-entry_lucide-react.eo4vyO8N.js  [39m[1m[2m  0.35 kB[22m[1m[22m[2m │ gzip:  0.27 kB[22m
+[2m23:47:26[22m [34m[vite][39m [2mdist/client/[22m[36m_astro/sonner.BR05sbM5.js                     [39m[1m[2m  1.31 kB[22m[1m[22m[2m │ gzip:  0.81 kB[22m
+[2m23:47:26[22m [34m[vite][39m [2mdist/client/[22m[36m_astro/createLucideIcon.CtVFhDUJ.js           [39m[1m[2m  1.86 kB[22m[1m[22m[2m │ gzip:  0.80 kB[22m
+[2m23:47:26[22m [34m[vite][39m [2mdist/client/[22m[36m_astro/tb.ChzduL6Z.js                         [39m[1m[2m  2.79 kB[22m[1m[22m[2m │ gzip:  1.18 kB[22m
+[2m23:47:26[22m [34m[vite][39m [2mdist/client/[22m[36m_astro/index.CGqfUJ1b.js                      [39m[1m[2m  3.89 kB[22m[1m[22m[2m │ gzip:  1.52 kB[22m
+[2m23:47:26[22m [34m[vite][39m [2mdist/client/[22m[36m_astro/index.6otl1p8d.js                      [39m[1m[2m  8.01 kB[22m[1m[22m[2m │ gzip:  3.11 kB[22m
+[2m23:47:26[22m [34m[vite][39m [2mdist/client/[22m[36m_astro/index.71xa6xuy.js                      [39m[1m[2m 34.11 kB[22m[1m[22m[2m │ gzip:  9.92 kB[22m
+[2m23:47:26[22m [34m[vite][39m [2mdist/client/[22m[36m_astro/client.CJ2mfJId.js                     [39m[1m[2m175.55 kB[22m[1m[22m[2m │ gzip: 55.67 kB[22m
+[2m23:47:26[22m [34m[vite][39m [2mdist/client/[22m[36m_astro/FormWithRecaptcha.DqSYISe0.js          [39m[1m[2m286.82 kB[22m[1m[22m[2m │ gzip: 74.16 kB[22m
+[2m23:47:26[22m [34m[vite][39m [32m✓ built in 1.71s[39m
+
+[42m[30m prerendering static routes [39m[49m
+[2m23:47:26[22m [32m▶[39m src/pages/web-development.astro
+[2m23:47:26[22m   [34m└─[39m [2m/web-development/index.html[22m [2m(+29ms)[22m 
+[2m23:47:26[22m [32m▶[39m src/pages/index.astro
+[2m23:47:26[22m   [34m└─[39m [2m/index.html[22m [2m(+14ms)[22m 
+[2m23:47:26[22m [32m✓ Completed in 207ms.
+[39m
+[2m23:47:26[22m [34m[build][39m Rearranging server assets...
+[2m23:47:26[22m [34m[@astrojs/vercel][39m Bundling function ..\..\..\..\dist\server\entry.mjs
+[31m[1m23:47:27[22m [ERROR] [@astrojs/vercel][39m An unhandled error occurred while running the [1m"astro:build:done"[22m hook
+EPERM: operation not permitted, symlink '.pnpm\react@19.1.0\node_modules\react' -> 'D:\dev\johnroddondoyano-astro\.vercel\output\functions\_render.func\node_modules\react'
+  [1mStack trace:[22m
+[2m    at async Module.symlink (node:internal/fs/promises:1005:10)
+    at async copyDependenciesToFunction (file:///D:/dev/johnroddondoyano-astro/node_modules/.pnpm/@astrojs+vercel@9.0.4_astro_53b1f84ec47b84f7806a556e3372fe2e/node_modules/@astrojs/vercel/dist/lib/nft.js:42:26)
+    at async astro:build:done (file:///D:/dev/johnroddondoyano-astro/node_modules/.pnpm/@astrojs+vercel@9.0.4_astro_53b1f84ec47b84f7806a556e3372fe2e/node_modules/@astrojs/vercel/dist/index.js:333:15)
+    at async runHookInternal (file:///D:/dev/johnroddondoyano-astro/node_modules/.pnpm/astro@5.17.1_@types+node@24_7fd4584ae3b415975df63f0b4329c627/node_modules/astro/dist/integrations/hooks.js:51:5)
+    at async AstroBuilder.build (file:///D:/dev/johnroddondoyano-astro/node_modules/.pnpm/astro@5.17.1_@types+node@24_7fd4584ae3b415975df63f0b4329c627/node_modules/astro/dist/core/build/index.js:167:5)[22m
