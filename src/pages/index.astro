@@ -1,9 +1,12 @@
 ---
+import FormWithRecaptcha from '@/components/FormWithRecaptcha';
 import { Button } from '@/components/ui/button';
 import RootLayout from '@/layouts/RootLayout.astro';
 import { MUSIC_STORES } from '@/lib/music-stores';
+import { SOCIALS } from '@/lib/socials';
+import { Image } from 'astro:assets';
 import { ChevronDown } from 'lucide-react';
-import { FaFolderOpen } from 'react-icons/fa';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 import { FaFile, FaMusic, FaSpotify, FaYoutube } from 'react-icons/fa6';
 
 const personSchema = {
@@ -174,7 +177,7 @@ const articles = [
     />
 
     <div
-      class="z-1 mx-auto w-full max-w-2xl space-y-6 bg-gradient-to-b from-transparent to-black/50 to-25% px-4 py-12"
+      class="z-1 mx-auto w-full max-w-lg space-y-6 bg-gradient-to-b from-transparent to-black/50 to-25% px-4 py-12"
     >
       <h1 class="text-background text-4xl font-bold">John Rod Dondoyano</h1>
       <p class="text-muted-foreground">
@@ -189,85 +192,155 @@ const articles = [
       <ChevronDown client:load className="text-muted-foreground mx-auto animate-bounce" />
     </div>
   </header>
-  <section
-    class="[&>article>p]:text-muted-foreground mt-3 flex flex-col divide-y [&>article]:space-y-6 [&>article]:px-4 [&>article]:py-12 [&>article]:last:border-b-0 [&>article>h2]:text-2xl [&>article>h2]:font-bold"
-    aria-label="Featured content and offerings"
-  >
-    <article>
-      <h2>316k+ Subscribers on YouTube</h2>
-      <p>
-        Join my growing family of music lovers and piano enthusiasts who enjoy heartfelt renditions,
-        tutorials, and creative arrangements.
-      </p>
-      <a
-        href="https://youtube.com/johnroddondoyano"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Subscribe to John Rod Dondoyano on YouTube"
-      >
-        <Button><FaYoutube />Subscribe!</Button>
-      </a>
-    </article>
-    <article>
-      <h2>360+ Piano Sheets</h2>
-      <p>
-        Explore an extensive collection of piano sheet music—perfect for all skill levels. Every
-        piece is transcribed with care and accuracy.
-      </p>
-      <a
-        href="https://mymusicsheet.com/johnroddondoyano"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Buy piano sheet music by John Rod Dondoyano on MyMusicSheet"
-      >
-        <Button><FaMusic />Buy Piano Sheets</Button>
-      </a>
-    </article>
-    <article>
-      <h2>300+ MIDI/MusicXML Files</h2>
-      <p>
-        Take your piano practice to the next level with downloadable MIDI and MusicXML files
-        compatible with Synthesia and notation software—great for visual learners.
-      </p>
-      <a
-        href="https://payhip.com/johnroddondoyano"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Buy MIDI and MusicXML files by John Rod Dondoyano on Payhip"
-      >
-        <Button><FaFile />Buy MIDI/MusicXML Files</Button>
-      </a>
-    </article>
-    <article>
-      <h2>14k+ Listeners on Music Streaming Platforms</h2>
-      <p>
-        Stream my piano covers on popular music platforms. Whether you're working, studying, or
-        relaxing—let the music inspire you.
-      </p>
-      <nav aria-label="Music streaming platforms" class="inline-flex flex-wrap gap-2">
-        {
-          MUSIC_STORES.map((store) => (
-            <a
-              href={store.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Listen to ${store.name} on ${store.name}`}
-            >
-              <Button>
-                <FaSpotify />
-                {store.name}
-              </Button>
-            </a>
-          ))
-        }
-      </nav>
-    </article>
-    <article>
-      <h2>A Hobby of Building</h2>
-      <p>I also build web apps for fun and for a purpose.</p>
-      <a href="/web-development" aria-label="View my web development projects">
-        <Button><FaFolderOpen /> View Projects </Button>
-      </a>
-    </article>
-  </section>
+  <div class="overflow-hidden">
+    <section
+      class="[&>article>p]:text-muted-foreground mt-3 flex flex-col divide-y [&>article]:relative [&>article]:space-y-6 [&>article]:px-4 [&>article]:py-12 [&>article]:last:border-b-0 [&>article>h2]:text-2xl [&>article>h2]:font-bold"
+      aria-label="Featured content and offerings"
+    >
+      <article>
+        <h2>316k+ Subscribers on YouTube</h2>
+        <p>
+          Join my growing family of music lovers and piano enthusiasts who enjoy heartfelt
+          renditions, tutorials, and creative arrangements.
+        </p>
+        <a
+          href="https://youtube.com/johnroddondoyano"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Subscribe to John Rod Dondoyano on YouTube"
+        >
+          <Button variant={'outline'} size={'icon'}
+            ><Image
+              src="https://www.youtube.com/s/desktop/2a3cb36e/img/favicon_144x144.png"
+              alt="YouTube"
+              width={28}
+              height={28}
+            /></Button
+          >
+        </a>
+        <div
+          class="bg-foreground hover active absolute right-0 -bottom-5 z-50 h-10 w-[60%] shadow sm:-bottom-8 sm:h-16"
+          aria-hidden="true"
+        >
+        </div>
+      </article>
+      <article>
+        <h2>360+ Piano Sheets on MyMusicFive</h2>
+        <p>
+          Explore an extensive collection of piano sheet music—perfect for all skill levels. Every
+          piece is transcribed with care and accuracy.
+        </p>
+        <a
+          href="https://mymusicfive.com/johnroddondoyano"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Buy piano sheet music by John Rod Dondoyano on MyMusicFive"
+        >
+          <Button variant={'outline'} size={'icon'}
+            ><Image
+              src="https://imgproxy.mapia.io/static/mms/favicon/png/apple-icon-180x180.png"
+              alt="MyMusicFive"
+              width={28}
+              height={28}
+            /></Button
+          >
+        </a>
+        <div
+          class="bg-foreground hover active absolute right-0 -bottom-5 z-50 h-10 w-[60%] shadow sm:-bottom-8 sm:h-16"
+          aria-hidden="true"
+        >
+        </div>
+      </article>
+      <article>
+        <h2>300+ MIDI/MusicXML Files</h2>
+        <p>
+          Take your piano practice to the next level with downloadable MIDI and MusicXML files
+          compatible with Synthesia and notation software—great for visual learners.
+        </p>
+        <a
+          href="https://payhip.com/johnroddondoyano"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Buy MIDI and MusicXML files by John Rod Dondoyano on Payhip"
+        >
+          <Button variant={'outline'} size={'icon'}
+            ><Image
+              src="https://payhip.com/images/designv2/favicon/apple-touch-icon-114x114.png"
+              alt="Payhip"
+              width={28}
+              height={28}
+            /></Button
+          >
+        </a>
+      </article>
+      <article>
+        <h2>14k+ Listeners on Music Streaming Platforms</h2>
+        <p>
+          Stream my piano covers on popular music platforms. Whether you're working, studying, or
+          relaxing—let the music inspire you.
+        </p>
+        <nav aria-label="Music streaming platforms" class="inline-flex flex-wrap gap-2">
+          {
+            MUSIC_STORES.map((store) => (
+              <a
+                href={store.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Listen to ${store.name} on ${store.name}`}
+              >
+                <Button variant={'outline'} size={'icon'}>
+                  <Image src={store.icon} alt={store.name} width={28} height={28} />
+                </Button>
+              </a>
+            ))
+          }
+        </nav>
+        <div
+          class="bg-foreground hover active absolute right-0 -bottom-5 z-50 h-10 w-[60%] shadow sm:-bottom-8 sm:h-16"
+          aria-hidden="true"
+        >
+        </div>
+      </article>
+      <article>
+        <h2>Follow Me on Social Media</h2>
+        <p>Stay connected and get the latest updates on my music, videos, and projects.</p>
+        <nav aria-label="Social media" class="inline-flex flex-wrap gap-2">
+          {
+            SOCIALS.map((store) => (
+              <a
+                href={store.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Listen to ${store.name} on ${store.name}`}
+              >
+                <Button variant={'outline'} size={'icon'}>
+                  <Image src={store.icon} alt={store.name} width={28} height={28} />
+                </Button>
+              </a>
+            ))
+          }
+        </nav>
+        <div
+          class="bg-foreground hover active absolute right-0 -bottom-5 z-50 h-10 w-[60%] shadow sm:-bottom-8 sm:h-16"
+          aria-hidden="true"
+        >
+        </div>
+      </article>
+      <article>
+        <h2>A Hobby of Building</h2>
+        <p>I also build web apps for fun and for a purpose.</p>
+        <a href="/web-development" aria-label="View my web development projects">
+          <Button variant={'outline'} size={'icon'} className="text-muted-foreground"
+            ><FaExternalLinkAlt />
+          </Button>
+        </a>
+        <div
+          class="bg-foreground hover active absolute right-0 -bottom-5 z-50 h-10 w-[60%] shadow sm:-bottom-8 sm:h-16"
+          aria-hidden="true"
+        >
+        </div>
+      </article>
+    </section>
+    <FormWithRecaptcha client:load />
+  </div>
 </RootLayout>

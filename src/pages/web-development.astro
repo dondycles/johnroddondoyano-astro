@@ -2,6 +2,7 @@
 import RootLayout from '@/layouts/RootLayout.astro';
 import { TbCode } from 'react-icons/tb';
 
+import FormWithRecaptcha from '@/components/FormWithRecaptcha';
 import { Button } from '@/components/ui/button';
 import { EXPERIENCES } from '@/lib/experiences';
 import { OWN_PROJECTS } from '@/lib/own-projects';
@@ -213,4 +214,5 @@ const projectListSchema = {
       </div>
     </article>
   </section>
+  <FormWithRecaptcha client:load />
 </RootLayout>

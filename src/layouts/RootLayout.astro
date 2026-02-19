@@ -5,7 +5,6 @@ interface Props {
     description?: string;
   };
 }
-import FormWithRecaptcha from '@/components/FormWithRecaptcha';
 import { Toaster } from '@/components/ui/sonner';
 import { MUSIC_STORES } from '@/lib/music-stores';
 import { SOCIALS } from '@/lib/socials';
@@ -176,15 +175,14 @@ const structuredData = {
   </head>
   <body class="font-google-sans-flex text-foreground bg-background antialiased [&_a]:underline">
     <main
-      class="flex w-full flex-col shadow-[0px_12px_0px_#00000011] [&>*:not(header):not(footer)]:mx-auto [&>*:not(header):not(footer)]:max-w-2xl"
+      class="flex w-full flex-col shadow-[0px_12px_0px_#00000011] [&>*:not(header):not(footer)]:mx-auto [&>*:not(header):not(footer)]:max-w-lg"
     >
       <slot />
-      <FormWithRecaptcha client:load />
       <footer class="bg-primary text-background w-full" role="contentinfo">
-        <div class="mx-auto w-full max-w-2xl space-y-12 px-4 py-24">
+        <div class="mx-auto w-full max-w-lg space-y-12 px-4 py-24">
           <h2 class="text-2xl font-bold">Let's Connect!</h2>
           <div
-            class="mx-auto flex flex-wrap justify-between gap-24 [&>nav>a]:no-underline [&>nav>a]:hover:underline"
+            class="mx-auto flex flex-wrap justify-between gap-16 [&>nav>a]:no-underline [&>nav>a]:hover:underline"
           >
             <nav class="flex flex-col gap-1 text-left" aria-label="Social media links">
               <h3 class="text-muted-foreground mb-6 text-base font-normal">Socials</h3>
