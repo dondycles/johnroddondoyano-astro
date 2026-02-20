@@ -50,11 +50,12 @@ export default function TalkForm() {
     toast.success('Submitted!');
   }
   return (
-    <div className="mx-auto w-full max-w-lg space-y-6 border-t px-4 py-12">
-      <h2 className="text-foreground text-2xl font-bold">Talk To Me</h2>
+    <div className="mx-auto w-full max-w-lg border-t px-4 py-12">
+      <h2 className="text-foreground text-xl font-bold">Talk To Me</h2>
       <p className="text-muted-foreground">
         Any inquiries? Send it to me by filling up the form below.
       </p>
+      <br />
       <Form {...form}>
         <form onSubmit={form.handleSubmit(handleSubmitForm)} className="space-y-6">
           <FormField

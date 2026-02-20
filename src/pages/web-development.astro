@@ -102,18 +102,17 @@ const breadcrumbSchema = {
     </div>
   </header>
   <section class="px-4 py-12" aria-label="Technical skills and tools">
-    <article class="space-y-6">
-      <h2 class="text-2xl font-bold">Tech Stacks</h2>
+    <article>
+      <h2 class="text-xl font-bold">Tech Stacks</h2>
+      <p class="text-muted-foreground">Tools I use for web development</p>
+      <br />
       <ul class="mb-0 flex list-none flex-wrap gap-4 p-0 text-2xl" role="list">
         {
-          TECH_STACKS.map((stack, i) => (
-            <li class="dark:bg-input/30 hover active flex items-center gap-1 border p-4 shadow">
+          TECH_STACKS.map((stack) => (
+            <li class="dark:bg-input/30 hover active flex items-center gap-1 border px-2 py-1 shadow">
               <stack.icon aria-hidden="true" />
               <p class="text-base">
                 <span>{stack.name}</span>
-                <span hidden={TECH_STACKS.length === i + 1} class="-ml-2 text-base">
-                  ,
-                </span>
               </p>
             </li>
           ))
@@ -122,14 +121,15 @@ const breadcrumbSchema = {
     </article>
   </section>
   <section class="border-t px-4 py-12" aria-label="Professional experiences">
-    <article class="space-y-6">
-      <h2 class="text-2xl font-bold">Experiences</h2>
+    <article>
+      <h2 class="text-xl font-bold">Experiences</h2>
       <p class="text-muted-foreground">My experiences so far</p>
+      <br />
       <div class="flex flex-col gap-4">
         {
           EXPERIENCES.map((exp) => (
-            <section class="hover active space-y-6 border px-4 py-12 shadow">
-              <div class="inline-flex items-center gap-4">
+            <section class="hover active border px-4 py-12 shadow">
+              <div class="inline-flex items-center gap-2">
                 <img
                   src={exp.icon as string}
                   alt={`${exp.name} logo`}
@@ -138,12 +138,14 @@ const breadcrumbSchema = {
                   height="40"
                   loading="lazy"
                 />
-                <h3 class="text-lg font-bold">{exp.name}</h3>
+                <h3 class="text-base font-bold">{exp.name}</h3>
               </div>
               <p class="text-muted-foreground">{exp.description}</p>
+              <br />
               <p class="text-muted-foreground text-sm">
                 <time datetime={exp.date}>{exp.date}</time>
               </p>
+              <br />
               <div class="flex flex-wrap items-end gap-4 text-sm">
                 <span class="text-muted-foreground">stacks: </span>
                 {exp.tech_stacks.map((stack, i) => (
@@ -180,14 +182,15 @@ const breadcrumbSchema = {
     </article>
   </section>
   <section class="border-t px-4 py-12" aria-label="Personal projects">
-    <article class="space-y-6">
-      <h2 class="text-2xl font-bold">Other Projects</h2>
+    <article>
+      <h2 class="text-xl font-bold">Other Projects</h2>
       <p class="text-muted-foreground">Just for fun</p>
+      <br />
       <div class="flex flex-col gap-4">
         {
           OWN_PROJECTS.map((project) => (
-            <section class="hover active space-y-6 border px-4 py-12 shadow">
-              <div class="inline-flex items-center gap-4">
+            <section class="hover active border px-4 py-12 shadow">
+              <div class="inline-flex items-center gap-2">
                 <img
                   src={project.icon as string}
                   alt={`${project.name} logo`}
@@ -196,9 +199,10 @@ const breadcrumbSchema = {
                   height="40"
                   loading="lazy"
                 />
-                <h3 class="text-xl font-bold">{project.name}</h3>
+                <h3 class="text-base font-bold">{project.name}</h3>
               </div>
               <p class="text-muted-foreground">{project.description}</p>
+              <br />
               <div class="flex flex-wrap items-end gap-4 text-sm">
                 <span class="text-muted-foreground">stacks: </span>
                 {project.tech_stacks.map((stack, i) => (
