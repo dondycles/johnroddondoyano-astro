@@ -132,15 +132,15 @@ const itemListSchema = {
       <ChevronDown client:load className="text-muted-foreground mx-auto animate-bounce" />
     </div>
   </header>
-  <div class="overflow-hidden">
+  <div class="w-full max-w-lg overflow-hidden">
     <section
-      class="[&>article>p]:text-muted-foreground mt-3 flex flex-col divide-y [&>article]:relative [&>article]:px-4 [&>article]:py-12 [&>article]:last:border-b-0 [&>article>h2]:text-xl [&>article>h2]:font-bold [&>article>p]:mb-3"
+      class="[&>article>p]:text-muted-foreground mt-3 flex flex-col divide-y [&>article]:relative [&>article]:w-full [&>article]:px-4 [&>article]:last:border-b-0 [&>article>h2]:text-xl [&>article>h2]:font-bold [&>article>p]:mb-3"
       aria-label="Featured content and offerings"
     >
-      <article>
+      <article class="py-10">
         <h2>316k+ Subscribers on YouTube</h2>
         <p>Join my growing family of music lovers and piano enthusiasts.</p>
-        <div class="flex items-center gap-2">
+        <div class="flex w-fit items-center gap-2">
           <FaChevronRight className="text-muted-foreground/65 text-xs" />
           <a
             href="https://youtube.com/johnroddondoyano"
@@ -152,16 +152,15 @@ const itemListSchema = {
               ><Image
                 src="https://www.youtube.com/s/desktop/2a3cb36e/img/favicon_144x144.png"
                 alt="YouTube"
-                width={28}
-                height={28}
+                width={24}
+                height={24}
               /></Button
             >
           </a>
         </div>
-
         <BlackKey />
       </article>
-      <article>
+      <article class="py-10">
         <h2>360+ Piano Sheets on MyMusicFive</h2>
         <p>Explore my collection of piano sheet music.</p>
         <div class="flex items-center gap-2">
@@ -182,10 +181,9 @@ const itemListSchema = {
             >
           </a>
         </div>
-
         <BlackKey />
       </article>
-      <article>
+      <article class="py-10">
         <h2>300+ MIDI/MusicXML Files</h2>
         <p>Download MIDI/MusicXML files for better piano learning.</p>
         <div class="flex items-center gap-2">
@@ -207,7 +205,7 @@ const itemListSchema = {
           </a>
         </div>
       </article>
-      <article>
+      <article class="py-10">
         <h2>14k+ Listeners on Music Streaming Platforms</h2>
         <p>Stream my piano covers on popular music platforms.</p>
         <div class="flex items-center gap-2">
@@ -231,7 +229,7 @@ const itemListSchema = {
         </div>
         <BlackKey />
       </article>
-      <article>
+      <article class="py-10">
         <h2>Follow Me on Social Media</h2>
         <p>Get the latest updates on my music, videos, and projects.</p>
         <div class="flex items-center gap-2">
@@ -255,7 +253,7 @@ const itemListSchema = {
         </div>
         <BlackKey />
       </article>
-      <article>
+      <article class="py-10">
         <h2>A Hobby of Building</h2>
         <p>I also build web apps for fun and for a purpose.</p>
         <div class="flex items-center gap-2">
